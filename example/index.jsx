@@ -41,7 +41,7 @@ class Board extends React.Component {
     const err = this.props.error ? this.props.error.message : null;
     return (
       <div>
-        <table style={{ border: "1px solid black" }}>
+        <table style={{ border: "1px solid white" }}>
           <tbody>
             <Row N={N} pile={this.props.state.piles[0]} />
             <Row N={N} pile={this.props.state.piles[1]} />

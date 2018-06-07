@@ -1,6 +1,6 @@
 # HSGS Hackathon 2018
 
-## Đề bài test
+## Đề bài
 
 // Link đề bài
 

@@ -7,13 +7,14 @@ import ReactGame from "react-gameboard/lib/component";
 const TOH = ReactGame(Game);
 
 storiesOf("Tower of Hanoi", module)
-  .add("with default props", () => (
+  .add("Size 4", () => (
     <TOH height={4}>
       <Board />
     </TOH>
   ))
-  .add("with size 9", () => (
-    <TOH height={9}>
+  .add("Size 5", () => (
+    <TOH height={5}>
       <Board />
     </TOH>
-  ));
+  )
+);

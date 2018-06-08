@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-
+//const N = Math.floor(Math.random()*15+1);
 const TowerOfHanoi = {
   /**
    * Initialize the default properties of 3 piles of plate, including:
@@ -8,10 +8,16 @@ const TowerOfHanoi = {
    * - the initial state of each pile
    */
   default(props = { height: 4 }) {
-    const piles = [[], [], []];
+    const piles = [[], [], [],[]];
     for (let i = props.height; i > 0; --i) {
       // Initialize the radius of each plate
-      piles[0].push(i);
+      for(let j = 3; j >= 0; --j) {
+        //const hihi = Math.floor(Math.random()*2);
+        //if(hihi == 0)
+          piles[j].push(Math.floor(Math.random()*15+1));
+        //else
+          //piles[j].push('X');
+      }
     }
     return { piles };
   },

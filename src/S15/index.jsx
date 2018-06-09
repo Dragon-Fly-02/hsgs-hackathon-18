@@ -1,6 +1,5 @@
 import React from "react";
 import Grad from "./lib/grad.js";
-
 import "./index.less";
 
 function Square(props) {

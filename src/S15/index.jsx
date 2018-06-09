@@ -56,50 +56,128 @@ class Board extends React.Component {
     let error = [];
     if (err !== null) error.push(JSON.stringify(err));
     let space = [];
-    for (let i = 5; i-- > 0; ) space.push(<br />);
+    for (let i = 5; i-- > 0; ) space.push(<br key={"br" + i} />);
     return (
       <div>
-				<h1 style={{ float: "left" }} >General Grad's Military Camp</h1>
+        <h1 style={{ float: "left" }}>General Grad's Military Camp</h1>
 
-				<label 
-					style={{ float: "left", marginLeft: "10px", marginTop: "20px" }} 
-					class="btn" 
-					for="modal-1"
-				>
-						How To Play?
-				</label>
+        <label
+          style={{ float: "left", marginLeft: "10px", marginTop: "20px" }}
+          className="btn"
+          htmlFor="modal-1"
+        >
+          How To Play?
+        </label>
 
-				<label 
-					style={{ float: "left", marginLeft: "10px", marginTop: "20px" }} 
-					class="btn" 
-					onClick={this.props.reset}
-				>
-						Reset
-				</label>
+        <label
+          style={{ float: "left", marginLeft: "10px", marginTop: "20px" }}
+          className="btn"
+          onClick={this.props.reset}
+        >
+          Reset
+        </label>
 
-				<input class="modal-state" id="modal-1" type="checkbox" />
-				<div class="modal">
-					<label class="modal__bg" for="modal-1"></label>
-					<div class="modal__inner">
-							<label class="modal__close" for="modal-1"></label>
-							<h1>Cốt truyện</h1>
-							<p>&nbsp;&nbsp;Khi còn trẻ, Pyke khởi đầu như bao kẻ khác ở Bilgewater: trên cầu cảng sát sinh. Hàng ngày, lũ quái vật dưới biển sâu bị kéo tới đây để xả thịt. Hắn tìm được công ăn việc làm ở quận Cảng Máu Me, bởi kể cả thủy triều cũng không đủ sức tẩy sạch màu đỏ nhớp nhúa không ngừng chảy ra từ kè gỗ.</p>
-							<p>&nbsp;&nbsp;Hắn nhanh chóng quen việc — với cả sự ghê tởm và đồng lương còm cõi của nó. Hết lần này đến lần khác, Pyke nhìn những túi vàng nặng trịch trao cho các thuyền trưởng để đổi lấy xác lũ thủy quái mà hắn và đồng nghiệp sẽ mổ xẻ để bán. Hắn mong muốn có nhiều hơn là vài xu trong túi, và đã tìm cách thuyết phục một đoàn thủy thủ cho nhập bọn. Hiếm kẻ dám săn theo phong cách truyền thống của Quần Đảo Mãng Xà: bắn mình vào mục tiêu để găm mũi móc bằng tay không, rồi bắt đầu đồ sát chúng khi chúng còn đang sống. Can đảm và tài giỏi, Pyke nhanh chóng trở thành tay lao thủ giỏi nhất mà tiền bạc có thể mua được. Hắn biết thịt chẳng đáng giá gì so với vài cơ quan nội tạng của lũ quái to lớn hơn, nguy hiểm hơn… thứ nội tạng cần thu hoạch lúc còn tươi.</p>
-							<p>&nbsp;&nbsp;Tuy vào độ khó của cuộc săn, mỗi con quái vật biển lại có giá riêng, và thứ được đám thương gia Bilgewater thèm khát nhất là cá quỷ. Từ bộ hàm đầy răng sắc như dao cạo của nó, người ta lấy ra các bao sapphilite vô giá đem bán khắp Runeterra cho những kẻ muốn chưng cất linh dược, và một bình con con thứ dầu lam lấp lánh đủ sức mua mười con tàu lẫn thủy thủ đoàn trên đó. Nhưng trong lúc đi săn cùng một thuyền trưởng thiếu tin cậy, Pyke đã học được bài học xương máu.</p>
-							<p>&nbsp;&nbsp;Sau nhiều ngày hành trình, một con cá quỷ khổng lồ xuất hiện, há to bộ hàm, để lộ hàng dãy túi sapphilite. Chừng chục mũi lao móc giữ con vật lại, và dù nó lớn hơn bất kỳ con nào hắn từng đụng độ, Pyke vẫn nhảy thẳng vào miệng nó không do dự</p>
-							<p>&nbsp;&nbsp;Khi hắn chuẩn bị bắt tay vào làm việc, cổ họng con vật bắt đầu rung lên. Bong bóng sôi ùng ục trên mặt biển, và một đàn cá quỷ bắt đầu lao vào con tàu. Viên thuyền trưởng hoảng hốt cắt dây bảo hiệm của Pyke. Thứ cuối cùng tay lao thủ xấu số nhìn thấy trước khi bộ hàm con quái khép lại là vẻ mặt kinh hoàng của các đồng đội khi trông thấy hắn bị nuốt chửng.</p>
-							<p>&nbsp;&nbsp;Nhưng đó chưa phải dấu chấm hết cho Pyke.</p>
-							<p>&nbsp;&nbsp;Dưới đáy sâu của đại dương vô danh, bị nghiền nát bởi áp lực ghê hồn, và vẫn kẹt cứng trong miệng con cá quỷ, hắn mở mắt. Ánh sáng lam rải khắp nơi, hàng nghìn hàng nghìn đốm sáng như đang dõi theo hắn. Tiếng vọng run rẩy của thứ gì đó cổ xưa và bí ẩn tràn ngập tâm trí hắn, đập tan nó, cho hắn thấy ảo cảnh về tất cả những gì hắn đã mất trong khi kẻ khác thì giàu sụ.</p>
-							<p>&nbsp;&nbsp;Một khao khát mới chiếm lấy Pyke, khao khát báo thù và phục hận. Hắn sẽ chất đầy dưới đáy sâu thi thể của những kẻ đã đối xử tệ bạc với hắn.</p>
-							<p>&nbsp;&nbsp;Ở Bilgewater, không ai nghĩ gì nhiều đến mấy vụ sát hại—ở nơi nguy hiểm này, thỉnh thoảng dòng triều chuyển màu đỏ cũng chả có gì lạ. Nhưng hết tuần đến tháng, người ta bắt đầu nhận ra quy luật. Thuyền trưởng các con tàu bị xé xác và bỏ mặc dưới ánh bình minh. Chủ các phòng rượu đồn đại về một kẻ sát nhân siêu nhiên, bị bỏ mặc ngoài biển, đã tìm đường trở lại. Từng là dấu hiệu của sự kính trọng và danh tiếng, câu hỏi “Ngươi là thuyền trưởng hả?” trở thành lời cảnh báo.</p>
-							<p>&nbsp;&nbsp;Rồi thợ đóng thuyền, thuyền phó, chỉ huy thương đội, chủ ngân hàng,… bất kỳ ai có dính dáng đến chuyện làm ăn trên cầu cảng sát sinh đều chịu chung số phận. Một cái tên mới ghim trên bảng truy nã: một ngàn kim xà cho tên Sát Thủ Vùng Nước Đỏ lừng danh.</p>
-							<p>&nbsp;&nbsp;Đi theo những ký ức bị đáy sâu làm sai lệch, Pyke đã thành công ở nơi mọi người thất bại—lan truyền nỗi sợ vào trái tim những kẻ máu lạnh ở Bilgewater. Một thành phố tự hào về nghề săn quái vật giờ đã tìm ra một con quái vật săn đuổi nó, và Pyke không có ý định dừng lại.</p>
-							<br />
-							<p style= {{fontStyle: "italic"}} >&nbsp;&nbsp;Đó là tiểu sử của Pyke. Nhiệm vụ của bạn chỉ là giúp tướng Grad dựng doanh trại bằng cách đặt những cái lều nằm ngay cạnh một lùm cây, sao cho không có 2 lều nào nằm trong 2 ô vuông liền kề nhau. Cuối mỗi cột / hàng cho biết số lều còn lại của mỗi cột / hàng đó.</p>
-					</div>
-				</div>
+        <input className="modal-state" id="modal-1" type="checkbox" />
+        <div className="modal">
+          <label className="modal__bg" htmlFor="modal-1" />
+          <div className="modal__inner">
+            <label className="modal__close" htmlFor="modal-1" />
+            <h1>Cốt truyện</h1>
+            <p>
+              &nbsp;&nbsp;Khi còn trẻ, Pyke khởi đầu như bao kẻ khác ở
+              Bilgewater: trên cầu cảng sát sinh. Hàng ngày, lũ quái vật dưới
+              biển sâu bị kéo tới đây để xả thịt. Hắn tìm được công ăn việc làm
+              ở quận Cảng Máu Me, bởi kể cả thủy triều cũng không đủ sức tẩy
+              sạch màu đỏ nhớp nhúa không ngừng chảy ra từ kè gỗ.
+            </p>
+            <p>
+              &nbsp;&nbsp;Hắn nhanh chóng quen việc — với cả sự ghê tởm và đồng
+              lương còm cõi của nó. Hết lần này đến lần khác, Pyke nhìn những
+              túi vàng nặng trịch trao cho các thuyền trưởng để đổi lấy xác lũ
+              thủy quái mà hắn và đồng nghiệp sẽ mổ xẻ để bán. Hắn mong muốn có
+              nhiều hơn là vài xu trong túi, và đã tìm cách thuyết phục một đoàn
+              thủy thủ cho nhập bọn. Hiếm kẻ dám săn theo phong cách truyền
+              thống của Quần Đảo Mãng Xà: bắn mình vào mục tiêu để găm mũi móc
+              bằng tay không, rồi bắt đầu đồ sát chúng khi chúng còn đang sống.
+              Can đảm và tài giỏi, Pyke nhanh chóng trở thành tay lao thủ giỏi
+              nhất mà tiền bạc có thể mua được. Hắn biết thịt chẳng đáng giá gì
+              so với vài cơ quan nội tạng của lũ quái to lớn hơn, nguy hiểm hơn…
+              thứ nội tạng cần thu hoạch lúc còn tươi.
+            </p>
+            <p>
+              &nbsp;&nbsp;Tuy vào độ khó của cuộc săn, mỗi con quái vật biển lại
+              có giá riêng, và thứ được đám thương gia Bilgewater thèm khát nhất
+              là cá quỷ. Từ bộ hàm đầy răng sắc như dao cạo của nó, người ta lấy
+              ra các bao sapphilite vô giá đem bán khắp Runeterra cho những kẻ
+              muốn chưng cất linh dược, và một bình con con thứ dầu lam lấp lánh
+              đủ sức mua mười con tàu lẫn thủy thủ đoàn trên đó. Nhưng trong lúc
+              đi săn cùng một thuyền trưởng thiếu tin cậy, Pyke đã học được bài
+              học xương máu.
+            </p>
+            <p>
+              &nbsp;&nbsp;Sau nhiều ngày hành trình, một con cá quỷ khổng lồ
+              xuất hiện, há to bộ hàm, để lộ hàng dãy túi sapphilite. Chừng chục
+              mũi lao móc giữ con vật lại, và dù nó lớn hơn bất kỳ con nào hắn
+              từng đụng độ, Pyke vẫn nhảy thẳng vào miệng nó không do dự
+            </p>
+            <p>
+              &nbsp;&nbsp;Khi hắn chuẩn bị bắt tay vào làm việc, cổ họng con vật
+              bắt đầu rung lên. Bong bóng sôi ùng ục trên mặt biển, và một đàn
+              cá quỷ bắt đầu lao vào con tàu. Viên thuyền trưởng hoảng hốt cắt
+              dây bảo hiệm của Pyke. Thứ cuối cùng tay lao thủ xấu số nhìn thấy
+              trước khi bộ hàm con quái khép lại là vẻ mặt kinh hoàng của các
+              đồng đội khi trông thấy hắn bị nuốt chửng.
+            </p>
+            <p>&nbsp;&nbsp;Nhưng đó chưa phải dấu chấm hết cho Pyke.</p>
+            <p>
+              &nbsp;&nbsp;Dưới đáy sâu của đại dương vô danh, bị nghiền nát bởi
+              áp lực ghê hồn, và vẫn kẹt cứng trong miệng con cá quỷ, hắn mở
+              mắt. Ánh sáng lam rải khắp nơi, hàng nghìn hàng nghìn đốm sáng như
+              đang dõi theo hắn. Tiếng vọng run rẩy của thứ gì đó cổ xưa và bí
+              ẩn tràn ngập tâm trí hắn, đập tan nó, cho hắn thấy ảo cảnh về tất
+              cả những gì hắn đã mất trong khi kẻ khác thì giàu sụ.
+            </p>
+            <p>
+              &nbsp;&nbsp;Một khao khát mới chiếm lấy Pyke, khao khát báo thù và
+              phục hận. Hắn sẽ chất đầy dưới đáy sâu thi thể của những kẻ đã đối
+              xử tệ bạc với hắn.
+            </p>
+            <p>
+              &nbsp;&nbsp;Ở Bilgewater, không ai nghĩ gì nhiều đến mấy vụ sát
+              hại—ở nơi nguy hiểm này, thỉnh thoảng dòng triều chuyển màu đỏ
+              cũng chả có gì lạ. Nhưng hết tuần đến tháng, người ta bắt đầu nhận
+              ra quy luật. Thuyền trưởng các con tàu bị xé xác và bỏ mặc dưới
+              ánh bình minh. Chủ các phòng rượu đồn đại về một kẻ sát nhân siêu
+              nhiên, bị bỏ mặc ngoài biển, đã tìm đường trở lại. Từng là dấu
+              hiệu của sự kính trọng và danh tiếng, câu hỏi “Ngươi là thuyền
+              trưởng hả?” trở thành lời cảnh báo.
+            </p>
+            <p>
+              &nbsp;&nbsp;Rồi thợ đóng thuyền, thuyền phó, chỉ huy thương đội,
+              chủ ngân hàng,… bất kỳ ai có dính dáng đến chuyện làm ăn trên cầu
+              cảng sát sinh đều chịu chung số phận. Một cái tên mới ghim trên
+              bảng truy nã: một ngàn kim xà cho tên Sát Thủ Vùng Nước Đỏ lừng
+              danh.
+            </p>
+            <p>
+              &nbsp;&nbsp;Đi theo những ký ức bị đáy sâu làm sai lệch, Pyke đã
+              thành công ở nơi mọi người thất bại—lan truyền nỗi sợ vào trái tim
+              những kẻ máu lạnh ở Bilgewater. Một thành phố tự hào về nghề săn
+              quái vật giờ đã tìm ra một con quái vật săn đuổi nó, và Pyke không
+              có ý định dừng lại.
+            </p>
+            <br />
+            <p style={{ fontStyle: "italic" }}>
+              &nbsp;&nbsp;Đó là tiểu sử của Pyke. Nhiệm vụ của bạn chỉ là giúp
+              tướng Grad dựng doanh trại bằng cách đặt những cái lều nằm ngay
+              cạnh một lùm cây, sao cho không có 2 lều nào nằm trong 2 ô vuông
+              liền kề nhau. Cuối mỗi cột / hàng cho biết số lều còn lại của mỗi
+              cột / hàng đó.
+            </p>
+          </div>
+        </div>
 
-				{space}
+        {space}
 
         <div style={{ float: "left" }}>{array}</div>
 
@@ -111,21 +189,16 @@ class Board extends React.Component {
           {this.props.isEnding === "won" ? "YOU WON" : ""}
         </h1>
 
-				{space}
-				
         <footer className="footer">
           <span> Made with ❤️ by </span>
-					<a href="https://gitlab.com/dungwinux">dungwinux</a>
-					<span>, </span>
-					<a href="https://gitlab.com/kudotuanminh">kudotuanminh</a>
-					<span>, </span>
-					<a href="https://gitlab.com/DucPr0">DucPr0</a>
-					<span>, </span>
-					<a href="https://gitlab.com/xmen1404">xmen1404</a>
+          <a href="https://gitlab.com/dungwinux">dungwinux</a>
+          <span>, </span>
+          <a href="https://gitlab.com/kudotuanminh">kudotuanminh</a>
+          <span>, </span>
+          <a href="https://gitlab.com/DucPr0">DucPr0</a>
+          <span>, </span>
+          <a href="https://gitlab.com/xmen1404">xmen1404</a>
         </footer>
-				
-				
-
       </div>
     );
   }

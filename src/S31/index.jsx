@@ -58,7 +58,7 @@ class Board extends React.Component {
     let space = [];
     for (let i = 5; i-- > 0; ) space.push(<br key={"br" + i} />);
     return (
-      <div className="s15">
+      <div className="s31">
         <h1 style={{ float: "left" }}>General Grad's Military Camp</h1>
 
         <label

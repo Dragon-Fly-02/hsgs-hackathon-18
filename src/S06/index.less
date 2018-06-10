@@ -8,9 +8,7 @@
     display: table;
   }
 
-  .square,
-  .square-tree,
-  .square-tent {
+  .square {
     background-color: #fff;
     border: 1px solid #999;
     float: left;
@@ -25,33 +23,17 @@
     width: 50px;
   }
 
-  .square:focus,
-  .square-tree:focus,
-  .square-tent:focus {
+  .square:focus {
     outline: none;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
   }
 
-  .square:hover,
-  .square-tree:hover,
-  .square-tent:hover {
+  .square:hover {
     cursor: pointer;
     background-color: #bbb;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-  }
-
-  .square-tree {
-    background-repeat: no-repeat;
-    background-size: 80%;
-    background-position: center;
-  }
-
-  .square-tent {
-    background-repeat: no-repeat;
-    background-size: 80%;
-    background-position: center;
   }
 
   .board-side {

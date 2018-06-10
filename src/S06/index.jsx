@@ -50,14 +50,23 @@ class Board extends React.Component {
 
     return (
       <div className="s06">
-        {array}
+        <div style={{ float: "left" }}>{array}</div>
         <h1 style={{ color: "red" }} className="msg">
           {error}
         </h1>
-
         <h1 style={{ color: "green" }} className="msg">
           {this.props.isEnding === "won" ? "YOU WON" : ""}
         </h1>
+        <footer className="footer">
+          <span> Made with ❤️ by </span>
+          <a href="https://gitlab.com/dungwinux">dungwinux</a>
+          <span>, </span>
+          <a href="https://gitlab.com/kudotuanminh">kudotuanminh</a>
+          <span>, </span>
+          <a href="https://gitlab.com/DucPr0">DucPr0</a>
+          <span>, </span>
+          <a href="https://gitlab.com/xmen1404">xmen1404</a>
+        </footer>
       </div>
     );
   }

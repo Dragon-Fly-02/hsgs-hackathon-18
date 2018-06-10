@@ -19,8 +19,16 @@ function shuffle(a) {
 const Tshirt = {
   default(props = { m: 6, n: 6 }) {
     // n cot, m hang
-    const m = props.m;
-    const n = props.n;
+    // n <= m
+    let m = props.m;
+    let n = props.n;
+    let doInvert = false;
+    if (m > n) {
+      m = props.n;
+      n = props.m;
+      doInvert = true;
+    }
+
     const dx = [-1, 0, 0, 1];
     const dy = [0, -1, 1, 0];
     let board = [];
@@ -34,7 +42,7 @@ const Tshirt = {
       first.unshift(first.pop());
     }
     board = shuffle(board);
-    console.table(board);
+    // console.table(board);
 
     let mark = [...Array(n)].map(e => Array(m).fill(false));
     for (let i = 0; i < n; ++i) {
@@ -54,8 +62,20 @@ const Tshirt = {
         }
       }
     }
-    console.table(board);
-    console.table(mark);
+
+    if (doInvert) {
+      let new_board = [...Array(m)].map(e => Array(n).fill(0));
+      for (let j = 0; j < m; ++j) {
+        for (let i = 0; i < n; ++i) {
+          new_board[j][i] = board[i][j];
+        }
+      }
+      console.table(new_board);
+      board = Array.from(new_board);
+    }
+
+    // console.table(board);
+    // console.table(mark);
 
     const selection = [...Array(n)].map(e => Array(m).fill(false));
 

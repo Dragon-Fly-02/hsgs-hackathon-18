@@ -67,8 +67,8 @@ function checkBoard(N, value) {
     }
   }
   for (let i = 0; i < N; ++i) {
-    if (cntRow[i] == 0) good = false;
-    if (cntCol[i] == 0) good = false;
+    if (cntRow[i] <= 1) good = false;
+    if (cntCol[i] <= 1) good = false;
   }
 
   // 3rd Quality: there are at least one displayed value in
@@ -82,6 +82,26 @@ function checkBoard(N, value) {
         }
       }
       if (cnt == 0) good = false;
+    }
+  }
+
+  // 4th Quality: the distance between two consecutive displayed values 
+  // in the same row or column must be smaller than N / 2
+  for (let i = 0; i < N; ++i) {
+    let consecutive = 0;
+    for (let j = 0; j < N; ++j) {
+      if (value[i][j] == null) ++consecutive;
+      else consecutive = 0;
+      if (consecutive >= N / 2) good = false;
+    }
+  }
+
+  for (let j = 0; j < N; ++j) {
+    let consecutive = 0;
+    for (let i = 0; i < N; ++i) {
+      if (value[i][j] == null) ++consecutive;
+      else consecutive = 0;
+      if (consecutive >= N / 2) good = false;
     }
   }
   

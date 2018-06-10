@@ -7,9 +7,32 @@ import ReactGame from "react-gameboard/lib/component";
 
 const N30 = ReactGame(Game);
 
-storiesOf("Game N30", module)
-  .add("something", () => (
-    <N30 N={14} PERCENTAGE={50.0/100.0}>
+storiesOf("N30", module)
+  .add("Easy Mode", () => (
+    <N30 N={4}>
       <Board />
     </N30>
   ))
+  .add("Medium Mode", () => (
+    <N30 N={6}>
+      <Board />
+    </N30>
+  ))
+  .add("Hard Mode", () => (
+    <N30 N={8}>
+      <Board />
+    </N30>
+  ))
+  .add("Custom", () => {
+    const options = {
+      range: true,
+      step: 1,
+      min: 3,
+      max: 13
+    };
+    return (
+      <N30 N={number("Size of board", 6, options)}>
+        <Board />
+      </N30>
+    );
+  });

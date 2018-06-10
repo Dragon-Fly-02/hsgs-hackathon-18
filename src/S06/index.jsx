@@ -175,6 +175,10 @@ class Board extends React.Component {
                 alt="POGGERS"
                 style={{ width: "30px", height: "30px" }}
               />
+<<<<<<< HEAD
+=======
+              />
+>>>>>>> s06-reset
             </p>
           </div>
         </div>

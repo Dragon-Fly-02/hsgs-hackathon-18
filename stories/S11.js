@@ -8,7 +8,7 @@ import "../src/S11/index.less";
 
 const S11 = ReactGame(Game);
 
-storiesOf("Aome vô địch", module)
+storiesOf("Aome vô địch (S11)", module)
   .addDecorator(withKnobs)
   .add("How to play", () => {
     return (

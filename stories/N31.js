@@ -9,22 +9,22 @@ const N31 = ReactGame(Game);
 
 storiesOf("N31", module)
   .addDecorator(withKnobs)
-  .add("Easy mode", () => (
+  .add("Dễ", () => (
     <N31 N={4}>
       <Board/>  
     </N31>
   ))
-  .add("Medium mode", () => (
+  .add("Trung bình", () => (
     <N31 N={6}>
       <Board/>  
     </N31>
   ))
-  .add("Hard mode", () => (
+  .add("Khó", () => (
     <N31 N={8}>
       <Board/>  
     </N31>
   ))
-  .add("Custom", () => {
+  .add("Tùy chọn", () => {
     const options = {
       range: true,
       step: 1,
@@ -32,7 +32,7 @@ storiesOf("N31", module)
       max: 10
     };
     return (
-      <N31 N={number("Size of board", 6, options)}>
+      <N31 N={number("Kích cỡ bảng", 6, options)}>
         <Board />
       </N31>
     );

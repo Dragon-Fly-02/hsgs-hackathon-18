@@ -202,9 +202,8 @@ class Board extends React.Component {
           </tbody>
         </table>
 
-        <br />
         <h1 className="result">
-          {this.props.isEnding === "won" ? "WOW! YOU HAVE POTENTIAL!" : ""}
+          {this.props.isEnding === "won" ? "WOW! BẠN THẬT QUÁ ĐỈNH!" : ""}
         </h1>
       </div>
     );

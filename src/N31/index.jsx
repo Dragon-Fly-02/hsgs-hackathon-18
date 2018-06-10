@@ -63,7 +63,7 @@ class Board extends React.Component {
       log.push(<span className="error">{error}</span>)
     }
     if (this.props.isEnding == "won" && err == null) {
-      log.push(<span className="won">{"NAISU! YOU ARE SO TALENTED!"}</span>)
+      log.push(<span className="won">{"NAISU! BẠN CÓ TÀI MÀ!"}</span>)
     }
     
     let result = [];

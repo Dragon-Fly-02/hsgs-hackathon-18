@@ -9,22 +9,22 @@ const S01 = ReactGame(Game);
 
 storiesOf("S01", module)
   .addDecorator(withKnobs)
-  .add("Easy Mode", () => (
+  .add("Dễ", () => (
     <S01 N={4}>
       <Board />
     </S01>
   ))
-  .add("Medium Mode", () => (
+  .add("Trung bình", () => (
     <S01 N={5}>
       <Board />
     </S01>
   ))
-  .add("Hard Mode", () => (
+  .add("Khó", () => (
     <S01 N={7}>
       <Board />
     </S01>
   ))
-  .add("Custom", () => {
+  .add("Tùy chọn", () => {
     const options = {
       range: true,
       step: 1,
@@ -32,7 +32,7 @@ storiesOf("S01", module)
       max: 10
     };
     return (
-      <S01 N={number("Size of board", 5, options)}>
+      <S01 N={number("Kích cỡ bảng", 5, options)}>
         <Board />
       </S01>
     );

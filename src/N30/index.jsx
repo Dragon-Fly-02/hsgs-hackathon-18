@@ -35,10 +35,10 @@ class Board extends React.Component {
     let end = [];
     const err = this.props.error ? this.props.error.message : null;
     if (err != null) {
-      error.push(<span>Invalid move!<br/>Check it again!</span>);
+      error.push(<span>Nước đi không hợp lệ!</span>);
     }
     else if (this.props.isEnding) {
-      end.push(<span>GOOD JOB!<br/>YOU ARE NOW A SUPER HERO!</span>)
+      end.push(<span>QUÁ ĐỈNH!<br/>BẠN LÀ MỘT ANH HÙNG!</span>)
     }
 
     return (

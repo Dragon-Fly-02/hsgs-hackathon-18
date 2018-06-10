@@ -116,16 +116,16 @@ const N31 = {
       let board = state.board.map(v => v.slice());
       let hidden = state.hidden.map(v => v.slice());
 
-      const invalid = " Move is invalid.";
+      const invalid = " Nước đi không hợp lệ.";
 
       // wrong format input
       if (value != "" && parseInt(value) != value || value >= N) {
-        throw new Error("Wrong format!" + invalid);
+        throw new Error("Sai định dạng!" + invalid);
       }
 
       // check hidden cell
       if (hidden[row][col] == 0) {
-        throw new Error("The number at " + "[" + row + ", " + col + "]" + " cannot be changed!" + invalid);
+        throw new Error("Số ở ô " + "[" + row + ", " + col + "]" + " không thể thay đổi!" + invalid);
       }
 
       // check empty string
@@ -137,7 +137,7 @@ const N31 = {
       value = parseInt(value);
       // check parity
       if (value % 2 != (row + col) % 2) {
-        throw new Error("The number at " + "[" + row + ", " + col + "]" + " must be " + (((row + col) % 2 == 0) ? "even!" : "odd!") + invalid);
+        throw new Error("Số ở ô " + "[" + row + ", " + col + "]" + " phải là số " + (((row + col) % 2 == 0) ? "chẵn!" : "lẻ!") + invalid);
       }
 
       // check distinct number in each column and row
@@ -145,13 +145,13 @@ const N31 = {
       for (let i = 0; i < N; ++i) {
         if (board[row][i] === "") continue;
         if (board[row][i] == board[row][col] && i != col) {
-          throw new Error("Row " + row + " has two equal number!" + invalid);
+          throw new Error("Hàng " + row + " có hai số giống nhau!" + invalid);
         }
       }
       for (let i = 0; i < N; ++i) {
         if (board[i][col] === "") continue;
         if (board[i][col] == board[row][col] && i != row) {
-          throw new Error("Column " + col + " has two equal number!" + invalid);
+          throw new Error("Cột " + col + " có hai số giống nhau!" + invalid);
         }
       }
       

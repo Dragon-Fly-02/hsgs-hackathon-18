@@ -21,24 +21,30 @@ class Row extends React.Component {
 class Board extends React.Component {
   render() {
     // Calculate the value of N
-    let N = 0;
-    for (let i = 0; i < 3; ++i) {
+    let N = this.props.state.piles[0].length;
+    /*for (let i = 0; i < 3; ++i) {
       for (let j of this.props.state.piles[i]) {
         N = Math.max(N, j);
       }
-    }
+    }*/
     const moves = [];
-    for (let i = 1; i <= 3; ++i)
-      for (let j = 1; j <= 3; ++j) {
-        moves.push(
-          <div>
-            <button onClick={() => this.props.move({ x: i, y: j })}>
-              Move {i} => {j}
-            </button>
-          </div>
-        );
+    for (let i = 1; i <= 4; ++i)
+      for (let j = i+1; j <= 4; ++j) {
+        if(i != j){
+          moves.push(
+            <div>
+              <button onClick={() => alert('click làm méo gì')}>
+                Move {i} => {j}
+              </button>
+              
+              <button onClick={() => alert('click làm méo gì')}>
+                Move {j} => {i}
+              </button>
+            </div>
+          );
+        }
       }
-    const err = this.props.error ? this.props.error.message : null;
+    //const err = this.props.error ? this.props.error.message : null;
     return (
       <div className="example">
         <table style={{ border: "1px solid black" }}>
@@ -46,12 +52,11 @@ class Board extends React.Component {
             <Row N={N} pile={this.props.state.piles[0]} />
             <Row N={N} pile={this.props.state.piles[1]} />
             <Row N={N} pile={this.props.state.piles[2]} />
+            <Row N={N} pile={this.props.state.piles[3]} />
           </tbody>
         </table>
         <hr />
         {moves}
-        <pre>{JSON.stringify(this.props)}</pre>
-        <pre>{JSON.stringify(err)}</pre>
       </div>
     );
   }

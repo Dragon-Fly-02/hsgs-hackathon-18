@@ -16,7 +16,7 @@ function generateState(N){
   }
 
   for (let i = 1; i <= N; i++){
-    if (sum[i-1] != 0) {
+    if (sum[i-1] !== 0) {
       board[N][i] += sum[i-1]; sum[N-1] += sum[i-1];
       board[i][N] -= sum[i-1]; sum[i-1] = 0;
     }

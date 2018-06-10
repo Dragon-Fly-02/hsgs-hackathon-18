@@ -7,7 +7,7 @@ import ReactGame from "react-gameboard/lib/component";
 
 const Grad = ReactGame(Game);
 
-storiesOf("Grad", module)
+storiesOf("Grad (S15)", module)
   .addDecorator(withKnobs)
   .add("Simple Mode", () => (
     <Grad n={4} m={4}>

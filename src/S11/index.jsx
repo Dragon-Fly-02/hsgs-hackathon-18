@@ -20,7 +20,7 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Aome",
+      name: "A",
       a: 0,
       b: 0,
       val: 0

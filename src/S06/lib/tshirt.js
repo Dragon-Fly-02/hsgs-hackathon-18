@@ -105,10 +105,11 @@ const Tshirt = {
     async reset(state) {
       const board = state.board;
       let selection = state.selection;
-      const n = board.length;
-      const m = board[0].length;
+      const n = selection.length;
+      const m = selection[0].length;
       for (let i = 0; i < n; ++i)
-        for (let j = 0; j < m; ++j) if (selection[i][j]) selection = false;
+        for (let j = 0; j < m; ++j)
+          if (selection[i][j]) selection[i][j] = false;
       return { board, selection };
     }
   },

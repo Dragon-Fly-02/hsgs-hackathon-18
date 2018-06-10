@@ -8,24 +8,24 @@ import "../src/S11/index.less";
 
 const S11 = ReactGame(Game);
 
-storiesOf("Aome vô địch (S11)", module)
+storiesOf("S11", module)
   .addDecorator(withKnobs)
   .add("How to play", () => {
     return (
       <div className="divs">
         <div>
-          Ở một ngôi nhà nọ có N Aome sống chung, họ có tên lần lượt là Aome 1,
-          Aome 2, ... Aome N. Sau nhiều ngày ăn chơi, những Aome đã vay nợ nhau
+          Ở một ngôi nhà nọ có N A sống chung, họ có tên lần lượt là A 1,
+          A 2, ... A N. Sau nhiều ngày ăn chơi, những A đã vay nợ nhau
           một cách lộn xộn. Nhiệm vụ của bạn là dùng số lần trả nợ ít nhất sao
           cho không ai còn nợ tiền.
         </div>
         <div>
-          Việc nợ tiền của các Aome được biểu diễn như một cái bảng với ô (i, j)
-          có giá trị X nghĩa là Aome i nợ Aome j X đồng.
+          Việc nợ tiền của các A được biểu diễn như một cái bảng với ô (i, j)
+          có giá trị X nghĩa là A i nợ A j X đồng.
         </div>
         <div>
           Một hành động trả nợ được biểu diễn gồm 3 giá trị (A, B, X) nghĩa là
-          Aome A sẽ trả Aome B X đồng.
+          A A sẽ trả A B X đồng.
         </div>
         <div>
           Một bước trả nợ bạn có thể điền A vào sau First person, B vào sau

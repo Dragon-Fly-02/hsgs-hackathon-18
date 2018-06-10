@@ -160,11 +160,11 @@ class Board extends React.Component {
             <p style={{ fontStyle: "italic" }}>
               &nbsp;&nbsp;Đó là tiểu sử của Fizz. Nhiệm vụ của bạn chỉ là giúp
               bác thợ in Hasan xóa vài con số trên bảng sao cho không có số nào
-              trùng lắp trong mỗi cột hoặc hàng, sao cho các ô bị xóa không được
-              nằm liền kế nhau trên một đường thẳng, nhưng có thể tiếp xúc ở
-              góc; các ô còn lại phải tiếp xúc nhau theo hàng ngang và/hoặc hàng
-              dọc như yêu cầu của thầy Goldstein. Sau đó bác Hasan có thể in áo
-              cho thầy Goldstein và PROFIT.{" "}
+              trùng lặp trong mỗi cột hoặc hàng, các ô bị xóa không được nằm
+              liền kế nhau trên một đường thẳng, nhưng có thể tiếp xúc ở góc;
+              các ô còn lại phải tiếp xúc nhau theo hàng ngang và/hoặc hàng dọc
+              như yêu cầu của thầy Goldstein. Sau đó bác Hasan có thể in áo cho
+              thầy Goldstein và PROFIT.{" "}
               <img
                 src="http://i0.kym-cdn.com/photos/images/masonry/001/324/306/54a"
                 alt="POGGERS"

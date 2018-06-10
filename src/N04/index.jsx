@@ -41,13 +41,13 @@ class Paragraph extends React.Component
 		<form onSubmit={this.handleSubmit}>
       <label>	Số học sinh làm bánh: </label>
       <br></br>
-      <input type="text" value={this.state.value1} onChange={this.handleChange1} class="cake" />
+      <input type="text" value={this.state.value1} onChange={this.handleChange1} className="cake" />
       <br></br>
       <label> Số học sinh nhảy đường phố: </label>
       <br></br>
-      <input type="text" value={this.state.value2} onChange={this.handleChange2} class="dance" />
+      <input type="text" value={this.state.value2} onChange={this.handleChange2} className="dance" />
   		<br></br>
-       <input  type="submit" value="Submit" class="submit1" />
+       <input  type="submit" value="Submit" className="submit1" />
 		</form>
 		);
 		let err;
@@ -57,16 +57,16 @@ class Paragraph extends React.Component
 		} else err = "Guess the right number!";
 		let res = [];
 		if(this.props.isEnding === null) res.push(
-		<div class = "Wrong">
+		<div className = "Wrong">
 		{err}
 		</div>);
 		else res.push( 
-		<div class = "True">
+		<div className = "True">
 		{err}
 		</div>);
 		return (
-		<div>
-      <div class="p1">
+		<div class = "n04">
+      <div className="p1">
 			Tại học viện Thánh Roch, cô Darja, thư ký trưởng, đang
 			phải đau đầu chuyển đổi tỉ lệ học sinh đăng ký tham gia Tuần lễ hoạt động
 			ngoại khóa thành con số thực tế để đưa vào trang thông tin. Bạn hãy giúp cô
@@ -74,7 +74,8 @@ class Paragraph extends React.Component
 			<br></br>
 			Không được dùng máy tính hãy giấy viết,
 			hãy tính nhẩm trong xem có bao nhiêu học sinh chọn hoạt động làm
-			bánh và bao nhiêu học sinh tham gia điệu nhảy đường phố.
+			bánh và bao nhiêu học sinh tham gia điệu nhảy đường phố. À và nhớ rằng do trình độ toán cô Darja có hạn 
+			nên có thể cô tính nhần tỉ lệ thực tế, do vậy hãy nhớ làm tròn đáp án nhé!
 			<br></br>
 			Biết rằng trường có tổng cộng {this.props.state.n} học sinh, {this.props.state.x}/{this.props.state.x1} tổng số học sinh tham gia tuần lễ hoạt động ngoại khóa.
 			Trong đó, {this.props.state.y}/{this.props.state.y1} số học sinh tranh tài trong cuộc thi làm bánh, {this.props.state.z}/{this.props.state.z1} số học sinh đăng ký nhảy vũ điệu đường phố.

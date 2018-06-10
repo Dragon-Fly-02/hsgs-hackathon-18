@@ -4,7 +4,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const n04 = 
 {
 	// This Game is a joke. I have suicidal thought just by coding this.
-	default(props = { n:5000,x:50,y:50,z:20 }) 
+	// Plz send help
+	default(props = {Stepn : 1000 , Stepx : 50, Stepy : 20, Stepz : 20} ) 
 	{
 		function ucln(a, b)
 		{
@@ -19,16 +20,16 @@ const n04 =
 		}
 		let ans = 0;
 		let ans1 = 0;
-		let n = props.n;
-		let x = props.x;
+		let n = (Math.floor(Math.random() * (Math.floor(10000/props.Stepn) - 1) + 1 ) ) * props.Stepn ;
+		let x = (Math.floor(Math.random() * (Math.floor(100/props.Stepx) - 1) + 1 ) ) * props.Stepx ; 
 		let x1 = 100;
 		let k = ucln(x,x1);
 		x = x / k; x1 = x1 / k;
-		let y = props.y;
+		let y = (Math.floor(Math.random() * (Math.floor(100/props.Stepy) - 1) + 1 ) ) * props.Stepy ;
 		let y1 = 100;
 		k = ucln(y,y1);
 		y = y / k; y1 = y1 / k;
-		let z = props.z;
+		let z = (Math.floor(Math.random() * (Math.floor(100/props.Stepz) - 1) + 1 ) ) * props.Stepz ;
 		let z1 = 100;
 		k = ucln(z,z1);
 		z = z / k; z1 = z1 / k;

@@ -38,25 +38,17 @@ const Tshirt = {
 
     let mark = [...Array(n)].map(e => Array(m).fill(false));
     for (let i = 0; i < n; ++i) {
-      for (let j = 1; j < m; ++j) {
-        const era = Math.floor(Math.random() * 5);
-        if (era < 2) {
-          let cant = false;
-          for (let k = 0; k < 4; ++k) {
-            if (check(i + dx[k], j + dy[k], m, n) && mark[i][j]) cant = true;
+      for (let j = 0; j < m; ++j) {
+        let flag = false;
+        for (let t = 0; t < 4; ++t)
+          if (check(i + dx[t], j + dy[t], m, n) && mark[i + dx[t]][j + dy[t]]) {
+            flag = true;
+            break;
           }
-          if (!cant) {
-            board[i][j] = Math.max(
-              board[i][j - 1],
-              i > 0 ? board[i - 1][j] : 0
-            );
-            for (let t = 0; t < j - 1; ++t) {
-              const putthis = Math.floor(Math.random() * 2);
-              if (putthis === 0) {
-                board[i][j] = board[i][t];
-                break;
-              }
-            }
+        if (!flag) {
+          const ran = Math.floor(Math.random() * 3);
+          if (ran > 1) {
+            board[i][j] = Math.floor(Math.random() * m) + 1;
             mark[i][j] = true;
           }
         }
@@ -101,10 +93,35 @@ const Tshirt = {
     }
   },
   isValid(state) {
+    const piles = state.board;
+    if (!(piles instanceof Array)) return false;
+    for (const pile of piles) if (!(pile instanceof Array)) return false;
     return true;
   },
   isEnding(state) {
-    return null;
+    const board = state.board;
+    const selection = state.selection;
+    const n = board.length;
+    const m = board[0].length;
+    for (let i = 0; i < n; ++i) {
+      let mark = Array(m).fill(false);
+      for (let j = 0; j < m; ++j) {
+        if (!selection[i][j]) {
+          if (mark[board[i][j]]) return null;
+          else mark[board[i][j]] = true;
+        }
+      }
+    }
+    for (let j = 0; j < m; ++j) {
+      let mark = Array(n).fill(false);
+      for (let i = 0; i < n; ++i) {
+        if (!selection[i][j]) {
+          if (mark[board[i][j]]) return null;
+          else mark[board[i][j]] = true;
+        }
+      }
+    }
+    return "won";
   }
 };
 

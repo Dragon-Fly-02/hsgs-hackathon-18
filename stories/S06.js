@@ -28,7 +28,7 @@ storiesOf("Tshirt (S06)", module)
     const options = {
       range: true,
       step: 1,
-      min: 2,
+      min: 4,
       max: 50
     };
     const input_n = number("Row", 6, options);

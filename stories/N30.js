@@ -8,6 +8,7 @@ import ReactGame from "react-gameboard/lib/component";
 const N30 = ReactGame(Game);
 
 storiesOf("N30", module)
+  .addDecorator(withKnobs)
   .add("Easy Mode", () => (
     <N30 N={4}>
       <Board />

@@ -1,7 +1,6 @@
 import React from "react";
 import Tshirt from "./lib/tshirt.js";
-
-import "./index.css";
+import "./index.less";
 
 function Square(props) {
   return (
@@ -37,7 +36,7 @@ class Board extends React.Component {
       );
     }
 
-    return <div>{array}</div>;
+    return <div className="s06">{array}</div>;
   }
 }
 

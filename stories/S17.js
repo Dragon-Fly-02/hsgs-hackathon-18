@@ -3,18 +3,12 @@ import { storiesOf } from "@storybook/react";
 import Chess from "../src/S17/index.jsx";
 import Game from "../src/S17/lib/knight.js";
 import ReactGame from "react-gameboard/lib/component";
-<<<<<<< HEAD
-=======
 import { number, withKnobs } from "@storybook/addon-knobs";
->>>>>>> master
 
 const KN = ReactGame(Game);
 
 storiesOf("Knight (S17)", module)
-<<<<<<< HEAD
-=======
   .addDecorator(withKnobs)
->>>>>>> master
   .add("Easy", () => (
     <KN row={3} col={4}>
       <Chess />
@@ -24,9 +18,6 @@ storiesOf("Knight (S17)", module)
     <KN row={8} col={8}>
       <Chess />
     </KN>
-<<<<<<< HEAD
-  ));
-=======
   ))
   .add("Custom", () => {
     const options = {
@@ -43,4 +34,3 @@ storiesOf("Knight (S17)", module)
       </KN>
     );
   });
->>>>>>> master

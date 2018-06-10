@@ -136,7 +136,7 @@ const Grad = {
     }
   },
   isValid(state) {
-    const piles = state.piles;
+    const piles = state.field;
     if (!(piles instanceof Array)) return false;
     for (const pile of piles) if (!(pile instanceof Array)) return false;
     return true;

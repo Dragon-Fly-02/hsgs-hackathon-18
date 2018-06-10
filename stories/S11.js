@@ -12,7 +12,7 @@ storiesOf("Aome vô địch (S11)", module)
   .addDecorator(withKnobs)
   .add("How to play", () => {
     return (
-      <div className="divs s11">
+      <div className="divs">
         <div>
           Ở một ngôi nhà nọ có N Aome sống chung, họ có tên lần lượt là Aome 1,
           Aome 2, ... Aome N. Sau nhiều ngày ăn chơi, những Aome đã vay nợ nhau

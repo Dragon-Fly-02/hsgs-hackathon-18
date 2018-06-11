@@ -69,7 +69,6 @@ class Board extends React.Component {
         </div>
       );
     }
-    console.table(board);
 
     let space = [];
     for (let i = 5; i-- > 0; ) space.push(<br key={"br" + i} />);

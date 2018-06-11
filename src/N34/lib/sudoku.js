@@ -35,7 +35,6 @@ const Sudoku = {
     for (let i = 0; i < len; ++i) {
       for (let j = 0; j < len; ++j) {
         const print = Math.floor(Math.random() * rate);
-        console.log(print);
         board[i][j] = -board[i][j];
         if (print !== 0) board[i][j] = null;
       }

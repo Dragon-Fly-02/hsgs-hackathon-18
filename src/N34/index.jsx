@@ -61,8 +61,8 @@ class Board extends React.Component {
                 x: i,
                 y: j,
                 val:
-                  (parseInt(event.target.valdisabue) > len) |
-                  (parseInt(event.target.value) < 1)
+                  parseInt(event.target.value) > len ||
+                  parseInt(event.target.value) < 1
                     ? null
                     : parseInt(event.target.value)
               })

@@ -23,6 +23,7 @@ const Sudoku = {
     const len = Math.floor(size * size);
     let vector = Array.from(new Array(len), (val, index) => index + 1);
     vector = shuffle(vector);
+    
     let board = [];
     for (let i = 0; i < size; ++i) {
       for (let j = 0; j < size; ++j) {

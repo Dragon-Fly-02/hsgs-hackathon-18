@@ -46,6 +46,7 @@ class Paragraph extends React.Component
 
 	render() 
 	{
+		// This overly majestic. You can't argue with this. 
 		let form = [];
 		form.push(
 		<form onSubmit={this.handleSubmit}>
@@ -99,8 +100,9 @@ class Paragraph extends React.Component
       		<div className="p1">
 	        Công trường xây dựng Riverrun
 			<br></br>
-			Khu phức hợp văn phòng Riverrun cần phải sửa chữa. Anh thợ Sony buộc phải thu phí ${this.props.state.money} trên mỗi nhân viên để có chi phí sửa chữa. Bạn hãy giúp Sony tính xem mỗi công ty có tất cả bao nhiêu nhân viên và phải thu tổng cộng bao nhiêu tiền và số tiền tổng kết cuối cùng thu được bao nhiêu ?
-			Nhưng ngặt nỗi Sony không có thông tin gì về số lượng nhân viên xác định ngoài dữ liệu dưới đây.
+			Khu phức hợp văn phòng Riverrun cần phải sửa chữa. Anh thợ Sony buộc phải thu phí ${this.props.state.money} trên mỗi nhân viên để có chi phí sửa chữa. Bạn hãy giúp Sony tính xem mỗi công ty có tất cả bao nhiêu nhân viên và phải thu tổng cộng bao nhiêu tiền và số tiền tổng kết cuối cùng thu được bao nhiêu làm tròn đến số tự nhiên gần nhất.
+			<br></br>
+			Sony không có thông tin gì về số lượng nhân viên xác định ngoài dữ liệu dưới đây.
 			<p> Có {this.props.state.people} người làm việc tại Riverrum </p>
 			<ul>
 				<li> {this.props.state.sandwich} % làm việc cho công ty bánh mì sandwich. </li>

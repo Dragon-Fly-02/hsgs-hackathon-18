@@ -122,7 +122,7 @@ const n20 =
 		let money_bag = state.money_bag;
 		// sum
 		let sum = state.sum;
-		if( (people*sandwich/100 == ans_sandwich && people*music/100 == ans_music && people*edu/100 == ans_edu && people*crafts/100 == ans_crafts && people*coat/100 == ans_coat && people*bag/100 == ans_bag) 
+		if( (Math.round(people*sandwich/100) == ans_sandwich && Math.round(people*music/100) == ans_music && Math.round(people*edu/100) == ans_edu && Math.round(people*crafts/100) == ans_crafts && Math.round(people*coat/100) == ans_coat && Math.round(people*bag/100) == ans_bag) 
 			&& (money*ans_sandwich == money_sandwich && money*ans_music == money_music && money*ans_edu == money_edu && money*ans_crafts == money_crafts && money*ans_coat == money_coat && money*ans_bag == money_bag)
 		&& sum == money*ans_sandwich + money*ans_music + money*ans_edu + money*ans_crafts + money*ans_coat + money*ans_bag)		
 			return "won";	

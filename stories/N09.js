@@ -12,4 +12,5 @@ storiesOf("N09", module)
 		<N09>
 			<Paragraph/>
 		</N09>
-	))
+	)
+)

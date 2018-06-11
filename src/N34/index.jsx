@@ -44,6 +44,7 @@ class Board extends React.Component {
             value={
               !board[i][j] || board[i][j] > len ? "" : Math.abs(board[i][j])
             }
+            key={"item" + i + j}
             className="square"
             disabled={this.props.isEnding === "won" ? true : board[i][j] < 0}
             min={1}

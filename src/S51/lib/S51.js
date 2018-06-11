@@ -26,10 +26,14 @@ const S51 = {
       board.push(Array(M).fill(0));
       glow.push(Array(M).fill(0));
     }
+
+    let lim = 2 + random(N * M - 2);
+
     let arr = [];
     arr.push([random(N), random(M)]); 
     board[arr[0][0]][arr[0][1]] = 1;
-    while(arr.length <= N * M / 2) {
+
+    while(arr.length <= lim) {
       random_shuffle(arr);
       let found = false;
       for(let i = 0; i < arr.length; ++i) {
@@ -59,7 +63,15 @@ const S51 = {
     }
     let type = [-1, -1];
     let _done = 0;
+    let Oboard = board;
+    let Oglow = glow;
+    let Otype = type;
+    let O_done = _done;
     return {
+      Oboard: Oboard,
+      Oglow: Oglow,
+      Otype: Otype,
+      O_done: O_done,
       board: board,
       glow: glow,
       type: type,
@@ -68,17 +80,49 @@ const S51 = {
   },
 
   actions: {
+    async restart(state) {
+      let Oboard = state.Oboard.map(v => v.slice());
+      let Oglow = state.Oglow.map(v => v.slice());
+      let Otype = state.Otype.slice();
+      let O_done = state.O_done;
+      let board = Oboard;
+      let glow = Oglow;
+      let _done = O_done;
+      let type = Otype;
+      return {
+        Oboard: Oboard,
+        Oglow: Oglow,
+        Otype: Otype,
+        O_done: O_done,
+        board: board,
+        glow: glow,
+        type: type,
+        _done: _done
+      };
+    },
+
     async move(state, {row, col}) {
+      let Oboard = state.Oboard.map(v => v.slice());
+      let Oglow = state.Oglow.map(v => v.slice());
+      let Otype = state.Otype.slice();
+      let O_done = state.O_done;
       let board = state.board.map(v => v.slice());
       let glow = state.glow.map(v => v.slice());
       let type = state.type.slice();
       let N = board.length;
       let M = board[0].length;
       let _done = 0;
-      if(type[0] == -1) {
+      if(type[0] == -1 || (glow[row][col] == 0)) {
         if(board[row][col] == 0) {
           throw new Error("Nước đi không hợp lệ");
         }
+        // reset glow[][]
+        for (let i = 0; i < N; ++i) {
+          for (let j = 0; j < N; ++j) {
+            glow[i][j] = 0;
+          }
+        }
+        // set
         type = [row, col];
         glow[row][col] = 1;
         for(let i = 0; i < 4; ++i) {
@@ -114,12 +158,16 @@ const S51 = {
         throw new Error("Nước đi không hợp lệ");
       }
       return {
+        Oboard: Oboard,
+        Oglow: Oglow,
+        Otype: Otype,
+        O_done: O_done,
         board: board,
         glow: glow,
         type: type,
         _done: _done
       };
-    }
+    },
   },
 
   isValid(state) {

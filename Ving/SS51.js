@@ -1,30 +1,30 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { number, withKnobs } from "@storybook/addon-knobs";
-import Board from "../src/S51/index.jsx";
-import Game from "../src/S51/lib/S51.js";
+import Board from "../src/SS51/index.jsx";
+import Game from "../src/SS51/lib/S51.js";
 import ReactGame from "react-gameboard/lib/component";
-import Guide from "../src/S51/guide.jsx";
+import Guide from "../src/SS51/guide.jsx";
 
 const S51 = ReactGame(Game);
 
-storiesOf("S51", module)
+storiesOf("SS51", module)
   .addDecorator(withKnobs)
   .add("Hướng dẫn", () => (
     <Guide> </Guide>
   ))
   .add("Dễ", () => (
-    <S51 N={3} M={4}>
+    <S51 N={3} M={3}>
       <Board />
     </S51>
   ))
   .add("Trung bình", () => (
-    <S51 N={4} M={5}>
+    <S51 N={4} M={4}>
       <Board />
     </S51>
   ))
   .add("Khó", () => (
-    <S51 N={5} M={6}>
+    <S51 N={6} M={5}>
       <Board />
     </S51>
   ))

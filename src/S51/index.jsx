@@ -63,34 +63,57 @@ class Board extends React.Component {
 
     let log = [];
     if (error.length != 0) {
-      log.push(<span>{error}</span>)
+      log.push(<span className="verdict">{error}</span>)
     }
 
     if (this.props.isEnding == "won" && err == null) {
-      log.push(<span>{"Giỏi!"}</span>)
+      log.push(<span className="verdict">{"Giỏi! Bạn xứng đáng là Học sinh Giỏi!"}</span>)
     }
 
     if (this.props.isEnding == "lose" && err == null) {
-      log.push(<span>{"Gà!"}</span>)
+      log.push(<span className="verdict">{"Tiếc quá! Thua rồi!"}</span>)
     }
     
     let result = [];
     result.push(<span></span>);
     if (log.length != 0) {
-      result.push(<div>{log}</div>)
+      result.push(<div className="log">{log}</div>)
+    }
+
+    let startGame = true;
+    for (let i = 0; i < N; ++i) {
+      for (let j = 0; j < N; ++j) {
+        if (this.props.state.board[i][j] != this.props.state.Oboard[i][j]) {
+          startGame = false;
+        }
+      }
     }
 
     return (
       <div className="s51">
-        <h1> S51 </h1>
+        <br/><br/>
         {arrBoard}
         <br/>
+
+        <span className="log">
           <button
+            className="undo"
             onClick={e => this.handleUndo()}
+            disabled={startGame}
           >
             Undo
           </button>
-        <br/>
+        </span>
+        <span className="log">
+          <button
+            className="restart"
+            onClick={() => this.props.restart()}
+            disabled={startGame}
+          >
+            Restart
+          </button>
+        </span>
+        <br/><br/>
         {result}
       </div>
     );

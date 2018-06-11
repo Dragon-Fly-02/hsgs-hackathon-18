@@ -42,7 +42,7 @@ function getDisplay(N, oldpath, oldboard) {
       if (board[i][j] == "" || board[i][j] == "gem") {
         display[i][j] = board[i][j];
       } else {
-        display[i][j] = board[i][j] - adj[i][j];
+        display[i][j] = parsetInt(board[i][j]) - adj[i][j];
         if (display[i][j] < 0) invalid = true;
       }
     }
@@ -184,10 +184,23 @@ const N13 = {
 
     let data = genData(N, MINLEN);
     let path = data.path, candidates = data.candidates, end = data.end;
-    
 
     let board = genBoard(N, path);
     let display = board.map(v => v.slice());
+
+    // let start = {x: 6, y: 2};
+    // let candidates = [start];
+    // let end = {x: 6, y: 5};
+    // let board = [
+    //   ["", "", "", "", "gem", "", ""],
+    //   ["", "", "", "", "", "", ""],
+    //   ["", "", 3, 2, "", "gem", 3],
+    //   [4, "gem", "", "", "", "", "gem"],
+    //   ["gem", "gem", "", "", "", 4, ""],
+    //   ["", "", 3, 1, "", 4, ""],
+    //   ["gem", "gem", "gem", 1, 1, "", "gem"]
+    // ]
+    // let display = board.map(v => v.slice());
 
     let visited = []; // initially no squares are visited
     for (let i = 0; i < N; ++i) {

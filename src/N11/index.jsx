@@ -76,16 +76,18 @@ class Board extends React.Component {
         status.push(<div style={{ color: "green" }}>Accepted. Bạn thắng.</div>);
       } else if (isEnded == "lose") {
         status.push(<div>LOSE. Bạn thua</div>);
-        let res = "Bạn tìm được " + this.props.state.res;
+        let res = "Bạn tìm được " + this.props.state.res + ". Số cần tìm là " + this.props.state.ans;
         status.push(<div>{res}</div>);
+      }
+      else{
+        status.push(<div> Số cần tìm </div>);
+        status.push(<div> {this.props.state.ans} </div>);
       }
       let error = [];
       if (err !== null) error.push(JSON.stringify(err));
       
       return (
         <div style={divStyle} className="N11">
-            <div> Số cần tìm </div>
-            <div> {this.props.state.ans} </div>
             {this.renderStatus(status)}
             {this.renderBoard(this.props.state.N)}
             <div style={{ color: "red" }}> {error} </div>

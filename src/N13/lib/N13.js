@@ -42,7 +42,7 @@ function getDisplay(N, oldpath, oldboard) {
       if (board[i][j] == "" || board[i][j] == "gem") {
         display[i][j] = board[i][j];
       } else {
-        display[i][j] = parsetInt(board[i][j]) - adj[i][j];
+        display[i][j] = parseInt(board[i][j]) - adj[i][j];
         if (display[i][j] < 0) invalid = true;
       }
     }
@@ -61,7 +61,11 @@ function getCandidates(N, oldpath, cur, board) {
       if (Math.abs(dx) + Math.abs(dy) != 1) continue;
       let nx = cur.x + dx, ny = cur.y + dy;
       let nxt = {x: nx, y: ny};
-      if (nx >= 0 && nx < N && ny >= 0 && ny < N && !include(path, nxt) && checkSubsquare(path, nxt) && parseInt(board[nx][ny]) != board[nx][ny]) {
+      if (nx < 0 || nx >= N || ny < 0 || ny >= N) continue; // outside the board
+
+      if (!include(path, nxt) 
+      && checkSubsquare(path, nxt) 
+      && (board[nx][ny] == "" || parseInt(board[nx][ny]) != board[nx][ny])) {
         path.push(nxt);
         let gDisplay = getDisplay(N, path, board);
         path.pop();
@@ -184,23 +188,9 @@ const N13 = {
 
     let data = genData(N, MINLEN);
     let path = data.path, candidates = data.candidates, end = data.end;
-
+    
     let board = genBoard(N, path);
     let display = board.map(v => v.slice());
-
-    // let start = {x: 6, y: 2};
-    // let candidates = [start];
-    // let end = {x: 6, y: 5};
-    // let board = [
-    //   ["", "", "", "", "gem", "", ""],
-    //   ["", "", "", "", "", "", ""],
-    //   ["", "", 3, 2, "", "gem", 3],
-    //   [4, "gem", "", "", "", "", "gem"],
-    //   ["gem", "gem", "", "", "", 4, ""],
-    //   ["", "", 3, 1, "", 4, ""],
-    //   ["gem", "gem", "gem", 1, 1, "", "gem"]
-    // ]
-    // let display = board.map(v => v.slice());
 
     let visited = []; // initially no squares are visited
     for (let i = 0; i < N; ++i) {
@@ -230,6 +220,12 @@ const N13 = {
       let candidates = getCandidates(N, path, cur, board);
       let gDisplay = getDisplay(N, path, board);
       let display = gDisplay.display;
+      // console.log("MOVE");
+      // console.log("path", path);
+      // console.log("board", board);
+      // console.log("display", display);
+      // console.log("cur", cur);
+      // console.log("candidates", candidates);
       return {
         N: N, // size of board
         path: path, // current path

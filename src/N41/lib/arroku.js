@@ -48,7 +48,7 @@ const Sudoku = {
       }
     }
 
-    let side = ["U", "L", "R", "D"];
+    // let side = ["U", "L", "R", "D"];
     let arrow = [...Array(len)].map(e => Array(len).fill(null));
     for (let i = 0; i < len; ++i) {
       for (let j = 0; j < len; ++j) {
@@ -59,7 +59,7 @@ const Sudoku = {
               Check(i + dx[k], j + dy[k], len) &&
               board[i + dx[k]][j + dy[k]] > board[i][j]
             ) {
-              arrow[i][j] = side[k];
+              arrow[i][j] = k;
               break;
             }
           }

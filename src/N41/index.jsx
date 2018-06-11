@@ -18,6 +18,7 @@ class Board extends React.Component {
 
   render() {
     const board = this.props.state.board;
+    const arrow = this.props.state.arrow;
     const len = board.length;
     const small_len = Math.sqrt(len);
     const err = this.props.error ? this.props.error.message : null;

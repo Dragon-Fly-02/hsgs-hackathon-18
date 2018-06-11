@@ -23,17 +23,17 @@ storiesOf("Sudoku (N34)", module)
     const size_options = {
       range: true,
       step: 1,
-      min: 3,
+      min: 2,
       max: 7
     };
     const rate_options = {
       range: true,
-      step: 0.5,
+      step: 0.25,
       min: 2,
       max: 10
     };
     const input_size = number("Kích cỡ", 3, size_options);
-    const input_rate = number("Độ khó", 2, rate_options);
+    const input_rate = number("Độ thưa", 2, rate_options);
     const size = input_size > 1 ? input_size : 3;
     const rate = input_rate > 1 ? input_rate : 2;
     return (

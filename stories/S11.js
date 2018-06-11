@@ -10,7 +10,7 @@ const S11 = ReactGame(Game);
 
 storiesOf("Aome vô địch (S11)", module)
   .addDecorator(withKnobs)
-  .add("How to play", () => {
+  .add("Hướng dẫn chơi", () => {
     return (
       <div className="divs s11">
         <div>
@@ -20,12 +20,12 @@ storiesOf("Aome vô địch (S11)", module)
           cho không ai còn nợ tiền.
         </div>
         <div>
-          Việc nợ tiền của các Aome được biểu diễn như một cái bảng với ô (i, j)
-          có giá trị X nghĩa là Aome i nợ Aome j X đồng.
+          Việc nợ tiền của các A được biểu diễn như một cái bảng với ô (i, j) có
+          giá trị X nghĩa là A i nợ A j X đồng.
         </div>
         <div>
-          Một hành động trả nợ được biểu diễn gồm 3 giá trị (A, B, X) nghĩa là
-          Aome A sẽ trả Aome B X đồng.
+          Một hành động trả nợ được biểu diễn gồm 3 giá trị (A, B, X) nghĩa là A
+          A sẽ trả A B X đồng.
         </div>
         <div>
           Một bước trả nợ bạn có thể điền A vào sau First person, B vào sau
@@ -38,12 +38,12 @@ storiesOf("Aome vô địch (S11)", module)
       </div>
     );
   })
-  .add("with default props", () => (
+  .add("Mức dễ", () => (
     <S11 _N={4}>
       <Board />
     </S11>
   ))
-  .add("Custom", () => {
+  .add("Tùy chọn", () => {
     const options = {
       range: true,
       step: 1,

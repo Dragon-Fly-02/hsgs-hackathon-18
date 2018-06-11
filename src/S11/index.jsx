@@ -20,11 +20,7 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
       name: "A",
-=======
-      name: "Aome",
->>>>>>> origin/master
       a: 0,
       b: 0,
       val: 0

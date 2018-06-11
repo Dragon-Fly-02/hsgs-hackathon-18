@@ -15,7 +15,6 @@ class Board extends React.Component {
     });
     lang = this.state.isToggleOn ? "VN" : "EN";
   }
-
   render() {
     const board = this.props.state.board;
     const len = board.length;
@@ -54,7 +53,8 @@ class Board extends React.Component {
               borderLeft: i % small_len === 0 ? "solid" : "",
               borderRight: len - i === 1 ? "solid" : "",
               borderTop: j % small_len === 0 ? "solid" : "",
-              borderBottom: len - j === 1 ? "solid" : ""
+              borderBottom: len - j === 1 ? "solid" : "",
+              borderColor: "#000000"
             }}
             onChange={event =>
               this.props.Place({

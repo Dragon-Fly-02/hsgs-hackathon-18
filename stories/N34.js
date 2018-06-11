@@ -15,12 +15,12 @@ storiesOf("Sudoku (N34)", module)
     </Sudoku>
   ))
   .add("Thường", () => (
-    <Sudoku size={3} rate={2.5}>
+    <Sudoku size={4} rate={2.5}>
       <Board />
     </Sudoku>
   ))
   .add("Khó", () => (
-    <Sudoku size={4} rate={3}>
+    <Sudoku size={5} rate={3}>
       <Board />
     </Sudoku>
   ))

@@ -6,9 +6,12 @@ var divStyle = {
 };
 
 function Square(props) {
+    let S = ((props.value === true) ? "color" : "");
     if (props.style === -1) 
-        return <button className="squarenull" />;
-    return <button className={"square" + props.style} />;
+        return <button className="squarenull" OnClick = {props.onClick} />;
+    return <button className={"square" + S + props.style} 
+                  onClick = {props.onClick}
+            />;
 }
 
 function check(x, y, N, isboard){
@@ -23,58 +26,27 @@ function check(x, y, N, isboard){
 class Board extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
-        a: 0,
-        b: 0,
-        val: 0
-      };
-      this.handleChangeA = this.handleChangeA.bind(this);
-      this.handleChangeB = this.handleChangeB.bind(this);
-      this.handleChangeC = this.handleChangeC.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChangeA(event) {
-      this.setState({
-        a: event.target.value,
-        b: this.state.b,
-        val: this.state.val
-      });
-    }
-  
-    handleChangeB(event) {
-      this.setState({
-        a: this.state.a,
-        b: event.target.value,
-        val: this.state.val
-      });
-    }
-  
-    handleChangeC(event) {
-      this.setState({
-        a: this.state.a,
-        b: this.state.b,
-        val: event.target.value
-      });
-    }
-  
-    handleSubmit(event) {
-      this.props.Choose({
-        X: this.state.a,
-        Y: this.state.b,
-        direction: this.state.val
-      });
-      this.setState({a: 0, b: 0, val: 0 });
-      event.preventDefault();
     }
   
     renderSquare(i, j) {
         let isboard = this.props.state.isboard;
         let N = this.props.state.N;
-        if (isboard === 0){
-            if (check(i, j, N, isboard) !== true) return <Square style={-1} />;
+        let val = false;
+        for (let k = 0; k < this.props.state.res.length; k++){
+          if (i == this.props.state.chosenx[k] && j == this.props.state.choseny[k]) val = true;
         }
-        return <Square style={this.props.state.board[i][j]}/>;
+        if (isboard === 0){
+            if (check(i, j, N, isboard) !== true) 
+            return <Square style={-1} 
+                        onClick={() => this.props.move({X : i, Y : j})} 
+                        value={val}
+                    />;
+        }
+        return <Square 
+              style={this.props.state.board[i][j]} 
+              onClick={() => this.props.move({X : i, Y : j})}
+              value={val}
+              />;
     }
   
     renderStatus(status) {
@@ -89,8 +61,10 @@ class Board extends React.Component {
   
     renderBoard(n) {
       let buffer = [];
-      for (let i = 1; i <= n; ++i) buffer.push(this.renderRow(i, n));
-      return buffer;
+      for (let i = 1; i <= n; ++i) {
+        buffer.push(this.renderRow(i, n));
+      }
+        return buffer;
     }
   
     render() {
@@ -102,48 +76,21 @@ class Board extends React.Component {
         status.push(<div style={{ color: "green" }}>Accepted. Bạn thắng.</div>);
       } else if (isEnded == "lose") {
         status.push(<div>LOSE. Bạn thua</div>);
+        let res = "Bạn tìm được " + this.props.state.res + ". Số cần tìm là " + this.props.state.ans;
+        status.push(<div>{res}</div>);
+      }
+      else{
+        status.push(<div> Số cần tìm </div>);
+        status.push(<div> {this.props.state.ans} </div>);
       }
       let error = [];
       if (err !== null) error.push(JSON.stringify(err));
-  
+      
       return (
         <div style={divStyle} className="N11">
-            <div> Số cần tìm </div>
-            <div> {this.props.state.ans} </div>
             {this.renderStatus(status)}
             {this.renderBoard(this.props.state.N)}
             <div style={{ color: "red" }}> {error} </div>
-            <div>
-            <form onSubmit={this.handleSubmit}>
-              <label class="label">
-                X:
-                <input
-                  type="number"
-                  value={this.state.a}
-                  onChange={this.handleChangeA}
-                />
-              </label>
-              <label class="label">
-                Y:
-                <input
-                  type="number"
-                  value={this.state.b}
-                  onChange={this.handleChangeB}
-                />
-              </label>
-              <label class="label">
-                Direction:
-                <input
-                  type="number"
-                  Min="0"
-                  Max="7"
-                  value={this.state.val}
-                  onChange={this.handleChangeC}
-                />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
-          </div>
           <button onClick={() => this.props.undo()}>Undo(quay lại)</button>
           <button onClick={() => this.props.StartaNewGame()}>
             Start a new game (bắt đầu lại)

@@ -10,49 +10,49 @@ const N11 = ReactGame(Game);
 
 storiesOf("N11", module)
   .addDecorator(withKnobs)
-  .add("How to play", () => (
+  .add("Hướng dẫn chơi", () => (
         <div className = "divs">
             <div> Khi bị lạc vào Sứ Sở Gương, bạn sẽ thấy mọi thứ bị đảo ngược. </div>
             <div> Hãy tìm một số, biết nó xuất hiện dưới dạng đường thẳng liên tục - theo chiều ngang, dọc hoặc chéo, xuôi hoặc ngược </div>
             <div> Các hàng được đánh số từ 1 đến n theo thứ tự trên xuống dưới </div>
             <div> Các cột được đánh số từ 1 đến N theo thứ tự từ trái sang phải </div>
-            <div> Nhiệm vụ của bạn là chọn một ô bắt đầu, sau đó chọn hướng để được đáp án đúng </div>
-            <div> Các hướng được đánh số như sau: </div>
-            <img src="https://i.imgur.com/8bpLYXi.png" width="300" height="300" />
+            <div> Nhiệm vụ của bạn là chọn các ô liên tiếp theo thứ tự để được đáp án đúng </div>
+            <div> Nếu bạn chọn sai bạn có thể sử dụng Undo để quay lại </div>
+            <div> Ở dạng tùy chọn bạn có thể kéo thanh kích cỡ để thay đổi kích cỡ của bảng (hoặc hình thoi) </div>
         </div>
   ))
-  .add("Board", () => (
+  .add("Dạng bảng", () => (
     <N11 _N={5} isboard={1}>
         <Board />
     </N11>
   ))
-  .add("Diamond", () => (
+  .add("Dạng hình thoi", () => (
     <N11 _N={5} isboard={0}>
         <Board />
     </N11>    
   ))
-  .add("Custom Board", () => {
+  .add("Tùy chọn dạng bảng", () => {
     const options = {
       range: true,
       step: 2,
       min: 5,
-      max: 25
+      max: 23
     };
     return (
-      <N11 _N={number("Size of board", 7, options)} isboard={1}>
+      <N11 _N={number("Kích cỡ của bảng", 7, options)} isboard={1}>
         <Board />
       </N11>
     );
   })
-  .add("Custom Diamond", () => {
+  .add("Tùy chọn dạng hình thoi", () => {
     const options = {
       range: true,
       step: 2,
       min: 5,
-      max: 25
+      max: 23
     };
     return (
-      <N11 _N={number("Size of Diamond", 7, options)} isboard={0}>
+      <N11 _N={number("Kích cỡ của hình thoi", 7, options)} isboard={0}>
         <Board />
       </N11>
     );

@@ -15,14 +15,14 @@ let lang = "VN";
 class Board extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {isToggleOn: true};
+    this.state = { isToggleOn: false };
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
     this.setState(function(prevState) {
-      return {isToggleOn: !prevState.isToggleOn};
+      return { isToggleOn: !prevState.isToggleOn };
     });
-    lang = (this.state.isToggleOn ? "VN" : "EN")
+    lang = this.state.isToggleOn ? "VN" : "EN";
   }
   render() {
     const field = this.props.state.field;
@@ -67,35 +67,42 @@ class Board extends React.Component {
     let error = [];
     if (err !== null) {
       let err_return = null;
-      switch(err) {
-        case 'tree_present' :
-          err_return = (lang === "VN" ? "Đã có cây ở ô này!" : "Tree is here!")
+      switch (err) {
+        case "tree_present":
+          err_return = lang === "VN" ? "Đã có cây ở ô này!" : "Tree is here!";
           break;
-        case 'no_adj_tree' :
-          err_return = (lang === "VN" ? "Không có cây liền kề ô này!" : "No adjancent trees found!")
+        case "no_adj_tree":
+          err_return =
+            lang === "VN"
+              ? "Không có cây liền kề ô này!"
+              : "No adjancent trees found!";
           break;
-        case 'near_tent' :
-          err_return = (lang === "VN" ? "Đã có lều dựng gần đây!" : "Nearby tent found!")
+        case "near_tent":
+          err_return =
+            lang === "VN" ? "Đã có lều dựng gần đây!" : "Nearby tent found!";
           break;
-        default : 
-          null
+        default:
+          null;
       }
       error.push(JSON.stringify(err_return));
     }
     let space = [];
     for (let i = 5; i-- > 0; ) space.push(<br key={"br" + i} />);
-    
+
     return (
-      <div className="s31"> 
-      
-        <h1 style={{ float: "left" }}>{lang === "VN" ? "Trại Quân Sự Của Tướng Grad" : "General Grad's Military Camp"}</h1>
+      <div className="s31">
+        <h1 style={{ float: "left" }}>
+          {lang === "VN"
+            ? "Trại Quân Sự Của Tướng Grad, Tái Xuất"
+            : "General Grad's Military Camp, Again"}
+        </h1>
 
         <label
           style={{ float: "left", marginLeft: "10px", marginTop: "20px" }}
           className="btn"
           onClick={this.handleClick}
         >
-        {lang === "VN" ? "English" : "Tiếng Việt"}
+          {lang === "VN" ? "English" : "Tiếng Việt"}
         </label>
 
         <label
@@ -103,7 +110,7 @@ class Board extends React.Component {
           className="btn"
           htmlFor="modal-1"
         >
-          {lang === "VN" ? "Hướng Dẫn Chơi" : "How To Play?"}
+          {lang === "VN" ? "Hướng dẫn chơi" : "How To Play?"}
         </label>
 
         <label
@@ -121,95 +128,103 @@ class Board extends React.Component {
             <label className="modal__close" htmlFor="modal-1" />
             <h1>Cốt truyện</h1>
             <p>
-              &nbsp;&nbsp;Khi còn trẻ, Pyke khởi đầu như bao kẻ khác ở
-              Bilgewater: trên cầu cảng sát sinh. Hàng ngày, lũ quái vật dưới
-              biển sâu bị kéo tới đây để xả thịt. Hắn tìm được công ăn việc làm
-              ở quận Cảng Máu Me, bởi kể cả thủy triều cũng không đủ sức tẩy
-              sạch màu đỏ nhớp nhúa không ngừng chảy ra từ kè gỗ.
+              &nbsp;&nbsp;Những con sông trên lục địa Valoran rất cổ xưa, nhưng
+              vẫn chưa là gì so với con quỷ Tahm Kench. Từ những ổ đánh bạc xập
+              xệ bên dòng sông Mãng Xà, qua những sòng bài mặn chát của
+              Bilgewater, cho đến những bàn cá cược xa hoa ở Piltover và Zaun –
+              tất cả những ai có cái nhìn thèm muốn đối với sự giàu có của người
+              khác đều phải chạm mặt Tahm Kench, và bị nuốt chửng bởi cơn đói
+              vĩnh cữu của Thủy Quái Đại Vương.
             </p>
             <p>
-              &nbsp;&nbsp;Hắn nhanh chóng quen việc — với cả sự ghê tởm và đồng
-              lương còm cõi của nó. Hết lần này đến lần khác, Pyke nhìn những
-              túi vàng nặng trịch trao cho các thuyền trưởng để đổi lấy xác lũ
-              thủy quái mà hắn và đồng nghiệp sẽ mổ xẻ để bán. Hắn mong muốn có
-              nhiều hơn là vài xu trong túi, và đã tìm cách thuyết phục một đoàn
-              thủy thủ cho nhập bọn. Hiếm kẻ dám săn theo phong cách truyền
-              thống của Quần Đảo Mãng Xà: bắn mình vào mục tiêu để găm mũi móc
-              bằng tay không, rồi bắt đầu đồ sát chúng khi chúng còn đang sống.
-              Can đảm và tài giỏi, Pyke nhanh chóng trở thành tay lao thủ giỏi
-              nhất mà tiền bạc có thể mua được. Hắn biết thịt chẳng đáng giá gì
-              so với vài cơ quan nội tạng của lũ quái to lớn hơn, nguy hiểm hơn…
-              thứ nội tạng cần thu hoạch lúc còn tươi.
+              &nbsp;&nbsp; Những con sông trên lục địa Valoran rất cổ xưa, nhưng
+              vẫn chưa là gì so với con quỷ Tahm Kench. Từ những ổ đánh bạc xập
+              xệ bên dòng sông Mãng Xà, qua những sòng bài mặn chát của
+              Bilgewater, cho đến những bàn cá cược xa hoa ở Piltover và Zaun –
+              tất cả những ai có cái nhìn thèm muốn đối với sự giàu có của người
+              khác đều phải chạm mặt Tahm Kench, và bị nuốt chửng bởi cơn đói
+              vĩnh cữu của Thủy Quái Đại Vương. Những câu chuyện đầu tiên về con
+              quái vật này được kể bởi những lữ khách đã đi qua sông Mãng Xà. Họ
+              cảnh báo về con thủy quái khổng lồ với cái miệng mở to như một cái
+              hang động, nó sẽ dụ dỗ những kẻ chưa thỏa mãn bằng những lời hứa
+              về một cuộc sống giàu sang. Một câu chuyện như thế kể về một cậu
+              trai trẻ được tiếng thật thà. Dù là một người đưa đò, cậu vẫn mong
+              muốn được thoát khỏi dòng sông nghèo mà cậu đã biết quá rõ, và
+              Thủy Quái Đại Vương đã hứa sẽ cho cậu một trải nghiệm không thể
+              nào quên nếu như cậu chịu thốt ra một lời nói dối. Cảm thấy nói
+              dối một lời chẳng hại gì, cậu lái đò đã cố ý bẻ cong sự thật với
+              anh trai mình. Đêm đó, con quỷ xuất hiện, nó chỉ ra một nhánh sông
+              mà cậu chưa bao giờ để ý đến. Cậu men theo khúc sông dẫn đến khu
+              cắm trại của một đoàn người lạ mặt, họ cho cậu thức ăn, nước uống,
+              và đề nghị kết tình hảo hữu. Khi bình minh ló dạng, cậu đã ăn uống
+              no đủ và chuẩn bị quay về nhà, con quỷ lại xuất hiện một lần nữa,
+              đề nghị một trải nghiệm còn tuyệt vời hơn với giá là một lời nói
+              dối nữa. Sự thèm muốn trỗi dậy, cậu chấp nhận giao kèo, và lại nói
+              dối với những người chủ khu trại. Con sông một lần nữa rẽ nhánh và
+              nó dẫn cậu đến một bữa tối còn xa hoa hơn. Việc này cứ tiếp diễn,
+              từ đêm này đến đêm nọ, cho đến khi một người từng thật thà như cậu
+              trở thành một kẻ nói dối như cuội.
             </p>
             <p>
-              &nbsp;&nbsp;Tuy vào độ khó của cuộc săn, mỗi con quái vật biển lại
-              có giá riêng, và thứ được đám thương gia Bilgewater thèm khát nhất
-              là cá quỷ. Từ bộ hàm đầy răng sắc như dao cạo của nó, người ta lấy
-              ra các bao sapphilite vô giá đem bán khắp Runeterra cho những kẻ
-              muốn chưng cất linh dược, và một bình con con thứ dầu lam lấp lánh
-              đủ sức mua mười con tàu lẫn thủy thủ đoàn trên đó. Nhưng trong lúc
-              đi săn cùng một thuyền trưởng thiếu tin cậy, Pyke đã học được bài
-              học xương máu.
+              &nbsp;&nbsp;Khi con sông cuối cùng đổ ra biển, cậu phát hiện ra
+              mình chỉ còn một mình và lạc lõng – không còn ai để nói dối cả.
+              Cậu đã tự chọn cho mình quá nhiều lựa chọn xấu, và chẳng còn đường
+              nào để quay trở về nhà nữa.
             </p>
             <p>
-              &nbsp;&nbsp;Sau nhiều ngày hành trình, một con cá quỷ khổng lồ
-              xuất hiện, há to bộ hàm, để lộ hàng dãy túi sapphilite. Chừng chục
-              mũi lao móc giữ con vật lại, và dù nó lớn hơn bất kỳ con nào hắn
-              từng đụng độ, Pyke vẫn nhảy thẳng vào miệng nó không do dự
+              &nbsp;&nbsp;Những dòng sông trong lục địa đã đưa những câu chuyện
+              về Thủy Quái Đại Vương đến Quần Đảo Lửa Xanh, nơi con quái vật này
+              được đặt cho một cái tên, và cũng là lúc huyền thoại về nó được
+              lan truyền rộng rãi – Tahm Kench. Ở Bilgewater, tài vận là phù du,
+              sự giàu có có thể đến và đi nhanh như cách thủy triều dâng lên và
+              hạ xuống. Những câu chuyện trên bàn nhậu nơi đây kể về ol’Tahm,
+              một con thủy quái với sự thèm muốn vĩnh cữu dành cho những trò
+              chơi may rủi, và sinh vật khoác lác này đã trở thành biểu tượng
+              của nhiều sòng bạc và hiệu buôn trên khắp thành phố.
             </p>
             <p>
-              &nbsp;&nbsp;Khi hắn chuẩn bị bắt tay vào làm việc, cổ họng con vật
-              bắt đầu rung lên. Bong bóng sôi ùng ục trên mặt biển, và một đàn
-              cá quỷ bắt đầu lao vào con tàu. Viên thuyền trưởng hoảng hốt cắt
-              dây bảo hiệm của Pyke. Thứ cuối cùng tay lao thủ xấu số nhìn thấy
-              trước khi bộ hàm con quái khép lại là vẻ mặt kinh hoàng của các
-              đồng đội khi trông thấy hắn bị nuốt chửng.
-            </p>
-            <p>&nbsp;&nbsp;Nhưng đó chưa phải dấu chấm hết cho Pyke.</p>
-            <p>
-              &nbsp;&nbsp;Dưới đáy sâu của đại dương vô danh, bị nghiền nát bởi
-              áp lực ghê hồn, và vẫn kẹt cứng trong miệng con cá quỷ, hắn mở
-              mắt. Ánh sáng lam rải khắp nơi, hàng nghìn hàng nghìn đốm sáng như
-              đang dõi theo hắn. Tiếng vọng run rẩy của thứ gì đó cổ xưa và bí
-              ẩn tràn ngập tâm trí hắn, đập tan nó, cho hắn thấy ảo cảnh về tất
-              cả những gì hắn đã mất trong khi kẻ khác thì giàu sụ.
-            </p>
-            <p>
-              &nbsp;&nbsp;Một khao khát mới chiếm lấy Pyke, khao khát báo thù và
-              phục hận. Hắn sẽ chất đầy dưới đáy sâu thi thể của những kẻ đã đối
-              xử tệ bạc với hắn.
-            </p>
-            <p>
-              &nbsp;&nbsp;Ở Bilgewater, không ai nghĩ gì nhiều đến mấy vụ sát
-              hại—ở nơi nguy hiểm này, thỉnh thoảng dòng triều chuyển màu đỏ
-              cũng chả có gì lạ. Nhưng hết tuần đến tháng, người ta bắt đầu nhận
-              ra quy luật. Thuyền trưởng các con tàu bị xé xác và bỏ mặc dưới
-              ánh bình minh. Chủ các phòng rượu đồn đại về một kẻ sát nhân siêu
-              nhiên, bị bỏ mặc ngoài biển, đã tìm đường trở lại. Từng là dấu
-              hiệu của sự kính trọng và danh tiếng, câu hỏi “Ngươi là thuyền
-              trưởng hả?” trở thành lời cảnh báo.
+              &nbsp;&nbsp;Khi Cổng Mặt Trời mở cửa cho giao thương giữa
+              Bilgewater và Piltover, những câu chuyện về Tahm Kench bắt đầu
+              được lan truyền đến Thành Phố Tân Tiến và người anh em của nó bên
+              dưới, Zaun. Nơi đây, bọn trẻ con gọi Tahm là “Áo Khoác Đôi”, một
+              con cá quái dị to đến nỗi nó phải mặc hai chiếc áo khoác cỡ lớn
+              được khâu lại với nhau. Với một chiếc mũ chóp hài hước và một nụ
+              cười đủ nuốt chửng một người trưởng thành, nó khơi gợi lòng đố kỵ
+              trong những tạo tác gia trẻ. Người ta kể rằng nó đã từng đến với
+              một nhà phát minh vào Ngày Tiến Bộ, đề nghị với cô một ý tưởng sẽ
+              được thu hút sự chú ý của một gia tộc giàu có. Tất cả những gì nó
+              đòi lại là một nắm tóc của cô. Cô gái đầy tham vọng đã thực hiện
+              giao kèo, và đúng như thế, ý tưởng đó đã giúp cô nhận được một
+              khoản hợp đồng hấp dẫn. Nhưng một phát minh thì không đủ, và Áo
+              Khoác Đôi đã quay trở lại, và lần này nó đòi hỏi mái tóc xinh đẹp
+              của cô. Không muốn làm người chủ mới của mình thất vọng, cô gái
+              đồng ý, và Áo Khoác Đôi nuốt chửng mái tóc cô ngay lập tức. Nhưng
+              nhà phát minh vẫn không thể tiếp tục nghĩ ra được một ý tưởng đột
+              phá nào để làm nên tên tuổi của cô cả. Con quỷ một lần nữa quay
+              lại, và lần này giao kèo của nó đòi một đầu ngón tay của cô. Tuần
+              tiếp theo, đó là một cái tai. Và sau một năm, cô gái chẳng còn gì
+              để có thể giao kèo nữa. Cô tuyệt vọng cầu khẩn Áo Khoác Đôi, mong
+              muốn nó sẽ dừng mọi thứ lại.
             </p>
             <p>
-              &nbsp;&nbsp;Rồi thợ đóng thuyền, thuyền phó, chỉ huy thương đội,
-              chủ ngân hàng,… bất kỳ ai có dính dáng đến chuyện làm ăn trên cầu
-              cảng sát sinh đều chịu chung số phận. Một cái tên mới ghim trên
-              bảng truy nã: một ngàn kim xà cho tên Sát Thủ Vùng Nước Đỏ lừng
-              danh.
+              &nbsp;&nbsp;Nó cười lớn và mở rộng đôi hàm của mình ra, nói với cô
+              rằng nó sẽ bảo vệ cô khỏi chính bản thân cô ta, và rồi nó nuốt
+              chửng lấy cô.
             </p>
             <p>
-              &nbsp;&nbsp;Đi theo những ký ức bị đáy sâu làm sai lệch, Pyke đã
-              thành công ở nơi mọi người thất bại—lan truyền nỗi sợ vào trái tim
-              những kẻ máu lạnh ở Bilgewater. Một thành phố tự hào về nghề săn
-              quái vật giờ đã tìm ra một con quái vật săn đuổi nó, và Pyke không
-              có ý định dừng lại.
+              &nbsp;&nbsp;Thủy Quái Đại Vương. Kẻ Khệnh Khạng Khổng Lồ. Bụng To.
+              Áo Khoác Đôi. Con thủy quái Tahm Kench được biết đến với rất nhiều
+              biệt danh, nhưng những ai đã từng gặp nó đều hiểu một sự thật duy
+              nhất: dù những lời hứa của nó có hấp dẫn đến như thế nào đi chăng
+              nữa, bạn chắc chắn sẽ tới số nếu như nhảy vào miệng của nó.
             </p>
             <br />
             <p style={{ fontStyle: "italic" }}>
-              &nbsp;&nbsp;Đó là tiểu sử của Pyke. Nhiệm vụ của bạn chỉ là giúp
-              tướng Grad dựng doanh trại bằng cách đặt những cái lều nằm ngay
-              cạnh một lùm cây, sao cho không có 2 lều nào nằm trong 2 ô vuông
-              liền kề nhau. Cuối mỗi cột / hàng cho biết số lều còn lại của mỗi
-              cột / hàng đó.
+              &nbsp;&nbsp;Đó là tiểu sử của Tahm Kench. Không khác gì lần trước,
+              nhiệm vụ của bạn vẫn chỉ là giúp tướng Grad dựng doanh trại bằng
+              cách đặt những cái lều nằm ngay cạnh một lùm cây, sao cho không có
+              2 lều nào nằm trong 2 ô vuông liền kề nhau. Cuối mỗi cột / hàng
+              cho biết số lều cần có trên mỗi cột / hàng đó.
             </p>
           </div>
         </div>
@@ -223,7 +238,11 @@ class Board extends React.Component {
         </h1>
 
         <h1 style={{ color: "green" }} className="msg">
-        {this.props.isEnding === "won" ? (lang_vn === true ? "Bạn đã thắng!" : "You Won!") : ""}
+          {this.props.isEnding === "won"
+            ? lang === "VN"
+              ? "Bạn đã thắng!"
+              : "You Won!"
+            : ""}
         </h1>
 
         <footer className="footer">

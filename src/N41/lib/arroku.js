@@ -16,6 +16,11 @@ function shuffle(a) {
   return a;
 }
 
+function Check(x, y, n) {
+  if (x >= 0 && x < n && y >= 0 && y < n) return true;
+  else return false;
+}
+
 const Sudoku = {
   default(props = { size: 3, rate: 2, arrowRate: 2 }) {
     const dx = [-1, 0, 0, 1];
@@ -51,7 +56,7 @@ const Sudoku = {
         if (put !== 0) {
           for (let k = 0; k < 4; ++k) {
             if (
-              check(i + dx[k], j + dy[k], len) &&
+              Check(i + dx[k], j + dy[k], len) &&
               board[i + dx[k]][j + dy[k]] > board[i][j]
             ) {
               arrow[i][j] = side[k];

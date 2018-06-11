@@ -23,7 +23,7 @@ var N09={
 					now-=num[i];
 					break;
 				case 2:
-					num.push(Math.round(Math.random()*29)+1);
+					num.push(Math.round(Math.random()*29));
 					now*=num[i];
 					break;
 				case 3:
@@ -101,7 +101,7 @@ var N09={
 						now-=num[i];
 						break;
 					case 2:
-						num.push(Math.round(Math.random()*29)+1);
+						num.push(Math.round(Math.random()*29));
 						now*=num[i];
 						break;
 					case 3:	
@@ -142,7 +142,7 @@ var N09={
 						now-=num[i];
 						break;
 					case 2:
-						num.push(Math.round(Math.random()*29)+1);
+						num.push(Math.round(Math.random()*29));
 						now*=num[i];
 						break;
 					case 3:	

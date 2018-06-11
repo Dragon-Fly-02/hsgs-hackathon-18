@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 
-var N09={
+var S04={
 	default (props) {
 		// Init
-		let N=7 , num=[], oper=[], res=[], now, tmp, ans=[];
+		let N=7, num=[], oper=[], res=[], now, tmp, ans=[];
 		num.push(Math.round(Math.random()*49)+1);
 		oper.push(-1);
 		ans.push(0);
@@ -19,7 +19,7 @@ var N09={
 					now+=num[i];
 					break;
 				case 1:
-					num.push(Math.floor(Math.random()*now));
+					num.push(Math.round(Math.random()*now));
 					now-=num[i];
 					break;
 				case 2:
@@ -27,9 +27,9 @@ var N09={
 					now*=num[i];
 					break;
 				case 3:
-					let d=[];
-					for(let j=1;j<=now;j++){
-						if(now%j==0) d.push(j);
+					let d;
+					for(let j=1;j<=num[i-1];j++){
+						if(num[i-1]%j==0) d.push(j);
 					}
 					num.push(d[Math.floor(Math.random()*d.length)]);
 					now/=num[i];
@@ -97,7 +97,7 @@ var N09={
 						now+=num[i];
 						break;
 					case 1:
-						num.push(Math.floor(Math.random()*now));
+						num.push(Math.round(Math.random()*now));
 						now-=num[i];
 						break;
 					case 2:
@@ -105,9 +105,9 @@ var N09={
 						now*=num[i];
 						break;
 					case 3:	
-						let d=[];
-						for(let j=1;j<=now;j++){
-							if(now%j==0) d.push(j);
+						let d;
+						for(let j=1;j<=num[i-1];j++){
+							if(num[i-1]%j==0) d.push(j);
 						}
 						num.push(d[Math.floor(Math.random()*d.length)]);
 						now/=num[i];
@@ -138,7 +138,7 @@ var N09={
 						now+=num[i];
 						break;
 					case 1:
-						num.push(Math.floor(Math.random()*now));
+						num.push(Math.round(Math.random()*now));
 						now-=num[i];
 						break;
 					case 2:
@@ -146,9 +146,9 @@ var N09={
 						now*=num[i];
 						break;
 					case 3:	
-						let d=[];
-						for(let j=1;j<=now;j++){
-							if(now%j==0) d.push(j);
+						let d;
+						for(let j=1;j<=num[i-1];j++){
+							if(num[i-1]%j==0) d.push(j);
 						}
 						num.push(d[Math.floor(Math.random()*d.length)]);
 						now/=num[i];
@@ -204,4 +204,4 @@ var N09={
 	}
 };
 
-exports.default=N09;
+exports.default=S04;

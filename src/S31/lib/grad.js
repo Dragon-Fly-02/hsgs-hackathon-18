@@ -8,6 +8,8 @@ function check(x, y, m, n) {
 
 const Grad = {
   default(props = { m: 6, n: 6 }) {
+    let lang = "EN";
+    if (props.lang_vn === true) lang = "VN";
     // n cot, m hang
     const m = props.m;
     const n = props.n;
@@ -91,7 +93,7 @@ const Grad = {
       const dx2 = [-1, -1, -1, 0, 0, 1, 1, 1];
       const dy2 = [-1, 0, 1, -1, 1, -1, 0, 1];
 
-      if (field[x][y] === "tree") throw new Error("Tree is here!");
+      if (field[x][y] === "tree") throw new Error ("tree_present");
 
       if (field[x][y] === "tent") {
         field[x][y] = null;
@@ -106,8 +108,7 @@ const Grad = {
           field[x + dx[k]][y + dy[k]] === "tree"
         )
           validtree = true;
-      if (!validtree)
-        throw new Error("No adjancent trees found! Move is invalid.");
+      if (!validtree) throw new Error ("no_adj_tree");
 
       // Check tentaround
       let tentaround = false;
@@ -117,7 +118,7 @@ const Grad = {
           field[x + dx2[k]][y + dy2[k]] === "tent"
         )
           tentaround = true;
-      if (tentaround) throw new Error("Nearby tent found! Move is invalid.");
+      if (tentaround) throw new Error ("near_tent");
       field[x][y] = "tent";
       return { field, cnti, cntj };
     },

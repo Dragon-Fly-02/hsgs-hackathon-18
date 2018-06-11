@@ -232,7 +232,7 @@ class Board extends React.Component {
 
         <h1 style={{ color: "green" }} className="msg">
           {this.props.isEnding === "won"
-            ? lang_vn === true
+            ? lang === "vn"
               ? "Bạn đã thắng!"
               : "You Won!"
             : ""}

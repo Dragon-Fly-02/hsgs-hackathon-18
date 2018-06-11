@@ -40,6 +40,7 @@ class Board extends React.Component {
       for (let i = 0; i < len; ++i)
         subarray.push(
           <input
+            inputMode="numeric"
             value={
               !board[i][j] || board[i][j] > len ? "" : Math.abs(board[i][j])
             }

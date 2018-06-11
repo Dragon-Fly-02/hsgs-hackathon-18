@@ -17,23 +17,27 @@ function shuffle(a) {
 }
 
 const Sudoku = {
-  default(props = { size: 3, rate }) {
+  default(props = { size: 3, rate: 2 }) {
     const size = props.size;
-    const len = size * size;
+    const rate = props.rate;
+    const len = Math.floor(size * size);
     let vector = Array.from(new Array(len), (val, index) => index + 1);
+    vector = shuffle(vector);
     let board = [];
     for (let i = 0; i < size; ++i) {
       for (let j = 0; j < size; ++j) {
-        board.push(vector);
-        vector = Shift(vector, temp);
+        let a = Array.from(vector);
+        board.push(a);
+        vector = Shift(vector, size);
       }
       vector = Shift(vector, 1);
     }
     for (let i = 0; i < len; ++i) {
       for (let j = 0; j < len; ++j) {
-        let print = Math.floor(Math.random() * rate);
-        if (print === 0) board[i][j] = -board[i][j];
-        else board[i][j] = null;
+        const print = Math.floor(Math.random() * rate);
+        console.log(print);
+        board[i][j] = -board[i][j];
+        if (print !== 0) board[i][j] = null;
       }
     }
     return { board };
@@ -41,7 +45,9 @@ const Sudoku = {
   actions: {
     async Place(state, { x, y, val }) {
       let board = state.board;
-      if (board[x][y] < 0) throw new Error("Invalid move!");
+      const len = board.length;
+      if (val === null) return { board };
+      if (val < 0 || val > len) throw new Error("Invalid move!");
       board[x][y] = val;
       return { board };
     },
@@ -55,30 +61,41 @@ const Sudoku = {
     return true;
   },
   isEnding(state) {
-    const board = state.board;
+    let board = state.board;
     const len = board.length;
     for (let i = 0; i < len; ++i) {
-      let mark = Array(len).fill(false);
-      for (let j = 0; j < len; ++j)
-        if (mark[board[i][j]]) return null;
-        else mark[board[i][j]] = true;
+      let mark = Array(len + 1).fill(false);
+      for (let j = 0; j < len; ++j) {
+        if (!Number.isInteger(board[i][j])) return null;
+        let k = Math.abs(board[i][j]);
+        if (mark[k]) return null;
+        else mark[k] = true;
+      }
+      for (let k = 1; k <= len; ++k) if (!mark[k]) return null;
     }
     for (let j = 0; j < len; ++j) {
       let mark = Array(len).fill(false);
-      for (let i = 0; i < len; ++i)
-        if (mark[board[i][j]]) return null;
-        else mark[board[i][j]] = true;
+      for (let i = 0; i < len; ++i) {
+        if (!Number.isInteger(board[i][j])) return null;
+        let k = Math.abs(board[i][j]);
+        if (mark[k]) return null;
+        else mark[k] = true;
+      }
+      for (let k = 1; k <= len; ++k) if (!mark[k]) return null;
     }
     const small_len = Math.floor(Math.sqrt(len));
     for (let i = 0; i < len; i += small_len) {
       for (let j = 0; j < len; j += small_len) {
         let mark = Array(len).fill(false);
-        for (let ti = 0; ti < len; ++ti) {
-          for (let tj = 0; tj < len; ++tj) {
-            if (mark[[i + ti][j + tj]]) return null;
-            else mark[[i + ti][j + tj]] = true;
+        for (let ti = 0; ti < small_len; ++ti) {
+          for (let tj = 0; tj < small_len; ++tj) {
+            if (!Number.isInteger(board[i + ti][j + tj])) return null;
+            let k = Math.abs(board[i + ti][j + tj]);
+            if (mark[k]) return null;
+            else mark[k] = true;
           }
         }
+        for (let k = 1; k <= len; ++k) if (!mark[k]) return null;
       }
     }
     return "won";

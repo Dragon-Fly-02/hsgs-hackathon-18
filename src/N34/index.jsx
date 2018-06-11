@@ -2,22 +2,11 @@ import React from "react";
 import Sudoku from "./lib/sudoku.js";
 import "./index.less";
 
-function Square(props) {
-  return (
-    <input
-      className="square"
-      onChange={props.onChange}
-      disabled={props.isOver || props.value < 0}
-    >
-      {props.value}
-    </input>
-  );
-}
-
 class Board extends React.Component {
   render() {
     const board = this.props.state.board;
     const len = board.length;
+    const small_len = Math.sqrt(len);
     const err = this.props.error ? this.props.error.message : null;
     let error = [];
     if (err !== null) error.push(JSON.stringify(err));
@@ -25,34 +14,44 @@ class Board extends React.Component {
     const array = [];
     for (let j = 0; j < len; ++j) {
       let subarray = [];
-      for (let i = 0; i < len; ++i) {
+      for (let i = 0; i < len; ++i)
         subarray.push(
-          <Square
-            key={"data" + i + "-" + j}
-            isOver={this.props.isEnding}
-            onChange={() =>
-              this.props.choose({
+          <input
+            type="number"
+            value={
+              board[i][j] === null || board[i][j] > len
+                ? ""
+                : Math.abs(board[i][j])
+            }
+            className="square"
+            disabled={this.props.isEnding === "won" ? true : board[i][j] < 0}
+            min={1}
+            max={len}
+            onChange={event =>
+              this.props.Place({
                 x: i,
                 y: j,
-                val: event => {
-                  event.target.value;
-                }
+                val:
+                  (parseInt(event.target.valdisabue) > len) |
+                  (parseInt(event.target.value) < 1)
+                    ? null
+                    : parseInt(event.target.value)
               })
             }
-            value={board[i][j]}
           />
         );
-      }
       array.push(
         <div className="board-row" key={"line" + j}>
           {subarray}
         </div>
       );
     }
+    console.table(board);
+
     let space = [];
     for (let i = 5; i-- > 0; ) space.push(<br key={"br" + i} />);
     return (
-      <div>
+      <div className="n34">
         <div style={{ float: "left" }}>{array}</div>
 
         <h1 style={{ color: "red" }} className="msg">

@@ -111,92 +111,112 @@ class Board extends React.Component {
             <label className="modal__close" htmlFor="modal-1" />
             <h1>Cốt truyện</h1>
             <p>
-              &nbsp;&nbsp;Từ rất lâu về trước, những đại dương của Runeterra đã
-              là cái nôi của những nền văn minh cổ xưa hơn nhiều so với những
-              chủng tộc trên đất liền. Dưới vực sâu của nơi mà hiện tại được gọi
-              là Biển Vệ Thần, một thành phố lớn đã từng tồn tại – và Fizz cũng
-              là một cư dân của nơi đây. Cậu đã sống cùng những thợ thủ công và
-              những chiến binh của một chủng tộc cao quý. Dù không phải là một
-              trong số họ, Fizz vẫn luôn được đối xử công bằng, và bản chất tinh
-              nghịch cùng những câu chuyện về những chuyến hải trình luôn khiến
-              cậu được chào đón tại nơi đây.
+              &nbsp;&nbsp;Để hiểu thấu được truyền thuyết về Nautilus, trước
+              tiên người ta phải biết về người đàn ông mà ngay cả những câu
+              chuyện khoác lác nhất trong quán rượu cũng phải thừa nhận, rằng gã
+              thật sự từng là một con người.
             </p>
             <p>
-              &nbsp;&nbsp;Nhưng thế giới luôn thay đổi. Đại dương ấm dần lên,
-              đánh thức những con thú săn mồi hung hãn từ dưới đáy sâu của vực
-              thẳm. Từng thành phố một chìm vào im lặng, nhưng lãnh đạo của
-              thành phố lớn vẫn chưa thể quyết định được cách để đối phó hiểm
-              họa này. Fizz đã nhận nhiệm vụ thăm dò biển cả để tìm kiếm những
-              người sống sót, hoặc ít nhất là tìm ai đó biết được chuyện gì đã
-              xảy ra.
+              &nbsp;&nbsp;Mặc dù những cơn sóng đã cuốn trôi tên thật của gã,
+              nhưng đa số vẫn nhớ Nautilus không chỉ là một thủy thủ mà còn là
+              một thợ lặn trục vớt. Bên ngoài vùng cực nam của Quần Đảo Lửa Xanh
+              là một nghĩa trang đầy xác tàu đắm, đồn rằng những con tàu này mất
+              tích khi đang trên đường tìm kiếm vùng đất hứa, nhằm trao đổi của
+              cải tiền tài với sự bất tử. Vào những ngày đẹp trời, kho báu này
+              lấp lánh rực rỡ dưới mặt biển như những lời dụ hoặc quyến rũ.
+              Nhiều thủy thủ đoàn tìm kiếm thợ lặn để thu thập báu vật, và không
+              ai có thể bì được với kỹ năng lặn biển tuyệt vời của gã khổng lồ
+              cơ bắp Nautilus.
             </p>
             <p>
-              &nbsp;&nbsp;Và rồi, trong một ngày âm u, bầy cá mập khổng lồ đã
-              đến.
+              &nbsp;&nbsp;Với khả năng nhịn thở vô cùng lâu dưới đáy nước,
+              Nautilus thích lặn tự do không cần phụ thuộc vào bình khí. Luôn
+              mang lên vô cùng nhiều vàng hoặc đồ trang sức quý giá cho thủy thủ
+              đoàn, nhưng gã không hề đòi hỏi thù lao đặc biệt nào - gã chỉ yêu
+              cầu thuyền trưởng ném một đồng vàng từ trên mạn tàu xuống biển khi
+              tàu rời đi, như một cử chỉ tôn vinh và xoa dịu đại dương bao la.
+              Đây chỉ là nỗi mê tín của một thủy thủ, nhưng nhiều người e sợ
+              biển cả vẫn thực hiện nhằm đảm bảo chuyến về an toàn.
             </p>
             <p>
-              &nbsp;&nbsp;Những con cá mập rồng này làm tê liệt con mồi của
-              chúng bằng những tiếng rít chết chóc, những con đường trong thành
-              phố nhanh chóng bị nhuộm đỏ. Hàng ngàn người bỏ mạng chỉ trong vài
-              giờ, công trình, đền đài bị phá sập trong cơn đói khủng khiếp của
-              đàn thú hoang. Đánh hơi thấy mùi máu trong nước biển, Fizz tức tốc
-              bơi về, quyết tâm tham gia trận chiến để cứu lấy thành phố.
+              &nbsp;&nbsp;Nhiều năm trục vớt đã khiến kho báu nhanh chóng cạn
+              kiệt, mỗi mẻ thu thập lại ít đi một chút, cho đến một ngày thủy
+              thủ đoàn của Nautilus nhận ra rằng con tàu và tất cả đều đã bị mua
+              lại.
             </p>
             <p>
-              &nbsp;&nbsp;Nhưng cậu đã quá trễ. Thành phố chẳng còn gì để cứu
-              vớt cả. Khi đống đổ nát lắng xuống, chẳng còn một sinh vật nào
-              sống sót, cũng chẳng có một viên gạch nào còn nguyên vẹn, và bầy
-              cá dữ đã đi mất. Chỉ còn lại một mình, Fizz rơi vào đau khổ và
-              tuyệt vọng. Ma thuật yordle bên trong Fizz dần tan biến khi cậu
-              thả mình theo dòng hải lưu, trôi dạt trong nỗi buồn, và chìm trong
-              cơn mộng mị kéo dài hàng thiên niên kỉ.
+              &nbsp;&nbsp;Bình minh rực đỏ vào buổi sáng vị thuyền trưởng mới
+              xuất hiện trên tàu. Đến từ một cảng nước ngoài, hắn mang theo một
+              bộ đồ khổng lồ bằng đồng thau và sắt. Hắn chỉ tập trung vào
+              Nautilus; quả thực, hắn đã mua lại con tàu vì Nautilus. Rõ là tên
+              thuyền trưởng này bị ám ảnh bởi một xác tàu kỳ bí, con tàu này vẫn
+              chìm trong bóng tối ngay cả vào ngày đẹp trời. Bộ giáp lặn có thể
+              chịu được áp lực dưới đáy đại dương lâu hơn bất kỳ một người nào,
+              đủ để thu thập những thứ ẩn giấu dưới bóng tối bất thường kia.
             </p>
             <p>
-              &nbsp;&nbsp;Chỉ có một thứ duy nhất đã có thể đánh thức cậu. Một
-              nắm những đồng xu rơi xuống từ phía trên mặt biển, rải rác xuống
-              thềm cát trong khi một con cá gỗ khổng lồ đang bơi ngang qua trên
-              mặt nước. Dù đó không phải là cá mập khổng lồ, nhưng Fizz vẫn cảnh
-              giác và thức giấc – cậu không biết gì về thế giới phía trên, nhưng
-              rõ là cá không sống được ở trên đấy. Cậu bơi lên và lần đầu tiên
-              hít thở không khí của bề mặt.
+              &nbsp;&nbsp;Thủy thủ đoàn cho rằng có việc làm còn hơn nhịn đói,
+              và Nautilus bắt đầu bị đóng vào bộ giáp lặn, sàn gỗ rền rĩ vì sức
+              nặng của nó. Cơn hoảng loạn dâng tràn trong lồng ngực khi gã nhận
+              ra họ không có gì để trả tiền lễ. Tên thuyền trưởng nước ngoài
+              cười phá lên khi Nautilus được hạ dần xuống mặt nước. Hắn đảm bảo
+              với thủy thủ đoàn rằng thứ mà Quý Bà Râu đang bảo vệ sẽ khiến họ
+              giàu có vượt xa tưởng tượng. Khi Nautilus trở lại, họ sẽ trả món
+              tiền lễ ngớ ngẩn đó.
             </p>
             <p>
-              &nbsp;&nbsp;Đó là con người, con người đã sinh sống bên trên mặt
-              nước và cưỡi trên những con cá gỗ với đủ mọi kích cỡ. Fizz cảm
-              thấy vừa lo sợ lại vừa hứng thú, nhưng món quà kì lạ mà họ rải
-              xuống dòng nước đủ nói lên rằng họ đang muốn làm bạn với cậu. Sau
-              một thời gian theo bước đoàn người đi đi lại lại giữa đại dương
-              mênh mông, cậu đã đến được thành phố cảng Bilgewater.
+              &nbsp;&nbsp;Khi Nautilus chìm dần, ánh sáng phía trên ngày một mờ
+              đi, và tất cả trở nên tĩnh lặng, tiếng thở của gã là âm thanh duy
+              nhất vang vọng trong bộ giáp lặn. Và rồi một cái gì đó vươn ra từ
+              vực thẳm. Gã đang bị nó kéo xuống, lần đầu tiên trong đời gã thấy
+              như tim mình bị bóp nghẹt bởi sự sợ hãi. Đó không phải là kho báu
+              thuyền trưởng tìm kiếm, mà là một nguồn sức mạnh ma quái đang say
+              ngủ.
             </p>
             <p>
-              &nbsp;&nbsp;Để sống sót ở một nơi hỗn độn như thế, sinh vật kì lạ
-              này đã nhanh chóng trở thành một huyền thoại – Kẻ Nghịch Ngợm Thủy
-              Triều, tinh linh của đại dương. Người ta đồn đại rằng cậu có thể
-              triệu hồi những con thủy quái để giúp đỡ mình, hay đục thủng một
-              chiếc thuyền với cây đinh ba hải thạch của cậu. Những đứa trẻ hư
-              cũng hay bị dọa trong những đêm không trăng rằng: “Ngủ nhanh đi,
-              không thì Kẻ Nghịch Ngợm sẽ đến và đem ngươi cho cá ăn đấy!”
+              &nbsp;&nbsp;Nautilus nắm lấy sợi xích mỏ neo, đây là mối liên kết
+              cuối cùng của gã với thế giới bên trên, để đu dần lên khi cái thứ
+              gì đó phía dưới đang cố kéo gã xuống. Nhưng trọng lượng của gã quá
+              nặng. Ngay khi những ngón tay kim loại to lớn của gã sắp vươn ra
+              khỏi mặt nước thì sợi xích gãy ngang. Nautilus gào thét trong bộ
+              giáp lặn, nhưng không ai có thể nghe thấy. Gã đổ nhào vào vùng
+              xoáy nước tăm tối, tay nắm chặt lấy mỏ neo trong tuyệt vọng. Những
+              cái tua đen tuyền quấn quanh gã, và gã chỉ còn nhìn thấy đường nét
+              mờ ảo của con tàu thân quen dần phai mờ. Và rồi mọi thứ chìm vào
+              bóng tối.
             </p>
             <p>
-              &nbsp;&nbsp;Bản chất của Fizz là tốt bụng, nhưng cậu nghịch ngợm
-              còn hơn cả một yordle bình thường, và luôn thích thú mỗi khi chơi
-              khăm được những cư dân ở Bilgewater. Những ngư dân dày dặn nhất
-              đều biết rằng, giống như thủy triều của đại dương, chú Yordle tinh
-              nghịch này sẽ dẫn họ đến những mẻ lưới đầy ắp một cách dễ dàng.
-              Tuy nhiên, Fizz cũng không ưa gì những kẻ tham lam hay ích kỉ, và
-              đã nhiều hơn một lần những tên thuyền trưởng xấu tính nhận ra rằng
-              hoa tiêu bí ẩn của chúng không hề dẫn đoàn thuyền đến nơi an toàn,
-              mà là xuống đáy biển.
+              &nbsp;&nbsp;Khi Nautilus tỉnh dậy dưới đáy đại dương, gã đã là một
+              thứ gì đó... khác biệt. Bóng tối không còn tổn thương gã nữa. Bộ
+              giáp lặn cồng kềnh đã biến thành lớp vỏ bọc liền mạch ôm lấy gã ẩn
+              giấu giao kèo mà nguồn sức mạnh nguyên thủy kia đã tạo ra với linh
+              hồn của gã. Bị kẹt dưới vực thẳm không có tí ánh sáng mặt trời, gã
+              chỉ nhớ duy nhất một việc--lời hứa không được thực hiện của tên
+              thuyền trưởng mới.
+            </p>
+            <p>
+              &nbsp;&nbsp;Nautilus thề rằng, ngay tại đây, ngay lúc này, tất cả
+              đều phải trả tiền lễ cho đại dương. Gã sẽ tự mình kiểm chứng.
+            </p>
+            <p>
+              &nbsp;&nbsp;Bị thúc đẩy bởi ý nghĩ này, gã tiến dần về phía bờ
+              biển. Nhưng khi gã đến được Bilgewater, rất nhiều năm đã trôi qua,
+              và gã không thể tìm thấy bất kỳ dấu vết nào của thuyền trưởng và
+              thủy thủ đoàn. Gã đã không còn có thể quay lại cuộc sống lúc
+              trước, gã cũng chẳng thể trả thù ai cả. Thay vì quay lại biển cả,
+              gã chọn cách gieo rắc cơn thịnh nộ của mình lên những kẻ tham lam,
+              kéo thủng thuyền của bọn chúng với cái mỏ neo hùng mạnh của gã.
+            </p>
+            <p>
+              &nbsp;&nbsp;Đôi lúc, trong những cơn sóng, những ký ức xa xôi về
+              con người lúc trước gã trôi nổi trên đường ngấn nước... nhưng bản
+              ngã hiện tại của Nautilus vẫn luôn chìm đắm dưới mặt biển.
             </p>
             <br />
             <p style={{ fontStyle: "italic" }}>
-              &nbsp;&nbsp;Đó là tiểu sử của Fizz. Nhiệm vụ của bạn chỉ là giúp
-              bác thợ in Hasan xóa vài con số trên bảng sao cho không có số nào
-              trùng lặp trong mỗi cột hoặc hàng, các ô bị xóa không được nằm
-              liền kế nhau trên một đường thẳng, nhưng có thể tiếp xúc ở góc;
-              các ô còn lại phải tiếp xúc nhau theo hàng ngang và/hoặc hàng dọc
-              như yêu cầu của thầy Goldstein. Sau đó bác Hasan có thể in áo cho
-              thầy Goldstein và PROFIT.
+              &nbsp;&nbsp;Đó là tiểu sử của Nautilus. Nhiệm vụ của bạn chỉ là
+              điền số vào bảng Sudoku của thầy Mothada và trở thành học sinh
+              khủng nhất lớp chuyên toán.
             </p>
           </div>
         </div>

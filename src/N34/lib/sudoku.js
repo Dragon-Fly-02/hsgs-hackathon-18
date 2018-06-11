@@ -60,6 +60,9 @@ const Sudoku = {
     }
   },
   isValid(state) {
+    const piles = state.board;
+    if (!(piles instanceof Array)) return false;
+    for (const pile of piles) if (!(pile instanceof Array)) return false;
     return true;
   },
   isEnding(state) {

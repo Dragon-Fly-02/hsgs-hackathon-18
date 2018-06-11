@@ -79,7 +79,7 @@ class Board extends React.Component {
     let space = [];
     for (let i = 5; i-- > 0; ) space.push(<br key={"br" + i} />);
     return (
-      <div className="n34">
+      <div className="n41">
         <h1 style={{ float: "left" }}>
           {lang === "VN" ? "Top 16 của thầy Mothada" : "Mr.Mothada's Top 16"}
         </h1>

@@ -19,11 +19,18 @@ var N09={
 					now+=num[i];
 					break;
 				case 1:
-					num.push(Math.floor(Math.random()*now));
-					now-=num[i];
+					if(now<6) {
+						ans.pop();
+						oper.pop();
+						i--;
+					}
+					else {
+						num.push(Math.floor(Math.random()*now));
+						now-=num[i];
+					}
 					break;
 				case 2:
-					num.push(Math.round(Math.random()*29));
+					num.push(Math.round(Math.random()*29)+1);
 					now*=num[i];
 					break;
 				case 3:
@@ -97,8 +104,15 @@ var N09={
 						now+=num[i];
 						break;
 					case 1:
-						num.push(Math.floor(Math.random()*now));
-						now-=num[i];
+						if(now<6) {
+							ans.pop();
+							oper.pop();
+							i--;
+						}
+						else {
+							num.push(Math.floor(Math.random()*now));
+							now-=num[i];
+						}
 						break;
 					case 2:
 						num.push(Math.round(Math.random()*29));
@@ -138,8 +152,15 @@ var N09={
 						now+=num[i];
 						break;
 					case 1:
-						num.push(Math.floor(Math.random()*now));
-						now-=num[i];
+						if(now<6) {
+							ans.pop();
+							oper.pop();
+							i--;
+						}
+						else {
+							num.push(Math.floor(Math.random()*now));
+							now-=num[i];
+						}
 						break;
 					case 2:
 						num.push(Math.round(Math.random()*29));

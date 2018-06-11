@@ -9,8 +9,13 @@ const Sudoku = ReactGame(Game);
 
 storiesOf("Sudoku (N34)", module)
   .addDecorator(withKnobs)
-  .add("Thường", () => (
+  .add("Dễ", () => (
     <Sudoku size={3} rate={2}>
+      <Board />
+    </Sudoku>
+  ))
+  .add("Thường", () => (
+    <Sudoku size={3} rate={2.5}>
       <Board />
     </Sudoku>
   ))

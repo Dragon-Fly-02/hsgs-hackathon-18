@@ -53,9 +53,10 @@ const Sudoku = {
     },
     async Reset(state) {
       let board = state.board;
-      let len = board.length;
+      const len = board.length;
       for (let i = 0; i < len; ++i)
-        for (let j = 0; j < len; ++j) if (board[i][j] > 0) board[i][j] = null;
+        for (let j = 0; j < len; ++j)
+          if (board[i][j] > 0 && board[i][j] <= len) board[i][j] = null;
       return { board };
     }
   },

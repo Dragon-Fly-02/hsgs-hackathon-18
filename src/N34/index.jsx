@@ -98,7 +98,7 @@ class Board extends React.Component {
         <label
           style={{ float: "left", marginLeft: "10px", marginTop: "20px" }}
           className="btn"
-          onClick={this.props.reset}
+          onClick={this.props.Reset}
         >
           {lang === "VN" ? "Đặt lại" : "Reset"}
         </label>

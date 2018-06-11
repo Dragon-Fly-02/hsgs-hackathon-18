@@ -42,14 +42,15 @@ class Board extends React.Component {
         subarray.push(
           <input
             value={
-              !board[i][j] || board[i][j] > len
-                ? ""
-                : Math.abs(board[i][j])
+              !board[i][j] || board[i][j] > len ? "" : Math.abs(board[i][j])
             }
             className="square"
             disabled={this.props.isEnding === "won" ? true : board[i][j] < 0}
             min={1}
             max={len}
+            style={{
+              color: board[i][j] > 0 ? "#FF1493" : "#000"
+            }}
             onChange={event =>
               this.props.Place({
                 x: i,

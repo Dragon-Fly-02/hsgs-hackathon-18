@@ -19,7 +19,19 @@ function Square(props) {
   );
 }
 
+let lang = "VN";
 class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isToggleOn: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState(function(prevState) {
+      return { isToggleOn: !prevState.isToggleOn };
+    });
+    lang = this.state.isToggleOn ? "VN" : "EN";
+  }
   render() {
     const board = this.props.state.board;
     const selection = this.props.state.selection;
@@ -28,7 +40,20 @@ class Board extends React.Component {
 
     const err = this.props.error ? this.props.error.message : null;
     let error = [];
-    if (err !== null) error.push(JSON.stringify(err));
+    if (err !== null) {
+      let err_return = null;
+      switch (err) {
+        case "num_lined":
+          err_return =
+            lang === "VN"
+              ? "Những số được đánh dấu không được liền kề nhau!"
+              : "Marked number can't be lined up";
+          break;
+        default:
+          null;
+      }
+      error.push(JSON.stringify(err_return));
+    }
 
     const array = [];
     for (let j = 0; j < M; ++j) {
@@ -54,14 +79,26 @@ class Board extends React.Component {
 
     return (
       <div className="s06">
-        <h1 style={{ float: "left" }}>T-shirt For The Math Club</h1>
+        <h1 style={{ float: "left" }}>
+          {lang === "VN"
+            ? "Áo Phông Cho Hội Toán"
+            : "T-shirt For The Math Club"}
+        </h1>
+
+        <label
+          style={{ float: "left", marginLeft: "10px", marginTop: "20px" }}
+          className="btn"
+          onClick={this.handleClick}
+        >
+          {lang === "VN" ? "English" : "Tiếng Việt"}
+        </label>
 
         <label
           style={{ float: "left", marginLeft: "10px", marginTop: "20px" }}
           className="btn"
           htmlFor="modal-1"
         >
-          How To Play?
+          {lang === "VN" ? "Hướng dẫn chơi" : "How To Play?"}
         </label>
 
         <label
@@ -69,7 +106,7 @@ class Board extends React.Component {
           className="btn"
           onClick={this.props.reset}
         >
-          Reset
+          {lang === "VN" ? "Đặt lại" : "Reset"}
         </label>
 
         <input className="modal-state" id="modal-1" type="checkbox" />
@@ -188,7 +225,11 @@ class Board extends React.Component {
         </h1>
 
         <h1 style={{ color: "green" }} className="msg">
-          {this.props.isEnding === "won" ? "YOU WON" : ""}
+          {this.props.isEnding === "won"
+            ? lang === "VN"
+              ? "Bạn đã thắng!"
+              : "You Won!"
+            : ""}
         </h1>
 
         <footer className="footer">

@@ -95,8 +95,8 @@ const Tshirt = {
         if (
           check(x + dx[k], y + dy[k], m, n) &&
           selection[x + dx[k]][y + dy[k]]
-        )
-          throw new Error("Marked number can't be lined up");
+        ) throw new Error ("num_lined");
+          
       }
 
       selection[x][y] = !selection[x][y];

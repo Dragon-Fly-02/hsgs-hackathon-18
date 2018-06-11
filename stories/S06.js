@@ -9,30 +9,30 @@ const Tshirt = ReactGame(Game);
 
 storiesOf("Tshirt (S06)", module)
   .addDecorator(withKnobs)
-  .add("Simple Mode", () => (
+  .add("Dễ", () => (
     <Tshirt n={4} m={4}>
       <Board />
     </Tshirt>
   ))
-  .add("Normal Mode", () => (
+  .add("Thường", () => (
     <Tshirt n={6} m={6}>
       <Board />
     </Tshirt>
   ))
-  .add("Expert Mode", () => (
+  .add("Khó", () => (
     <Tshirt n={8} m={8}>
       <Board />
     </Tshirt>
   ))
-  .add("Custom Mode", () => {
+  .add("Tùy chỉnh", () => {
     const options = {
       range: true,
       step: 1,
       min: 4,
       max: 50
     };
-    const input_n = number("Row", 6, options);
-    const input_m = number("Column", 6, options);
+    const input_n = number("Số cột", 6, options);
+    const input_m = number("Số hàng", 6, options);
     const n = input_n > 1 ? input_n : 6;
     const m = input_m > 1 ? input_m : 6;
     return (

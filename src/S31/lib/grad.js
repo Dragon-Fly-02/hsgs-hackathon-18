@@ -7,7 +7,9 @@ function check(x, y, m, n) {
 }
 
 const Grad = {
-  default(props = { m: 6, n: 6 }) {
+  default(props = { m: 6, n: 6, lang_vn: false }) {
+    let lang = "EN";
+    if (props.lang_vn === true) lang = "VN";
     // n cot, m hang
     const m = props.m;
     const n = props.n;
@@ -76,7 +78,7 @@ const Grad = {
     // ];
     // const cnti = [2, 1, 1, 2, 1, 1];
     // const cntj = [1, 1, 2, 1, 0, 3];
-    return { field, cnti, cntj };
+    return { field, cnti, cntj, lang };
   },
   actions: {
     async place(state, { x, y }) {
@@ -91,7 +93,8 @@ const Grad = {
       const dx2 = [-1, -1, -1, 0, 0, 1, 1, 1];
       const dy2 = [-1, 0, 1, -1, 1, -1, 0, 1];
 
-      if (field[x][y] === "tree") throw new Error("Tree is here!");
+      if (field[x][y] === "tree")
+        throw new Error (state.lang === "EN" ? "Tree is here!" : "Đã có cây ở ô này!");
 
       if (field[x][y] === "tent") {
         field[x][y] = null;
@@ -107,7 +110,7 @@ const Grad = {
         )
           validtree = true;
       if (!validtree)
-        throw new Error("No adjancent trees found! Move is invalid.");
+        throw new Error (state.lang === "EN" ? "No adjancent trees found!" : "Không có cây liền kề ô này!");
 
       // Check tentaround
       let tentaround = false;
@@ -117,7 +120,8 @@ const Grad = {
           field[x + dx2[k]][y + dy2[k]] === "tent"
         )
           tentaround = true;
-      if (tentaround) throw new Error("Nearby tent found! Move is invalid.");
+      if (tentaround)
+        throw new Error (state.lang === "EN" ? "Nearby tent found!" : "Đã có lều dựng gần đây!");
       field[x][y] = "tent";
       return { field, cnti, cntj };
     },

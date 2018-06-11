@@ -80,7 +80,8 @@ class Paragraph extends React.Component
 			Biết rằng trường có tổng cộng {this.props.state.n} học sinh, {this.props.state.x}/{this.props.state.x1} tổng số học sinh tham gia tuần lễ hoạt động ngoại khóa.
 			Trong đó, {this.props.state.y}/{this.props.state.y1} số học sinh tranh tài trong cuộc thi làm bánh, {this.props.state.z}/{this.props.state.z1} số học sinh đăng ký nhảy vũ điệu đường phố.
       </div>
-	  
+	  <pre>{JSON.stringify(this.state)}</pre>
+	  <pre>{JSON.stringify(this.props)}</pre>
 	  {form}
       {res}
 	  </div>

@@ -38,11 +38,10 @@ class Paragraph extends React.Component {
 					<button onClick={() => this.props.deN()} style={{margin: "0px 10px 0px 0px", width: "30px"}}>-</button>
 					<button onClick={() => this.props.ans()}>Đáp án</button>
 					<Equation num={num} oper={oper} N={N} changeo={changeo} res={res}/>
-
+					<pre>{JSON.stringify(this.props)}</pre>
+					<pre>{JSON.stringify(err)}</pre>
 					</h1>
 				</div>
-				<pre>{JSON.stringify(this.props)}</pre>
-				<pre>{JSON.stringify(err)}</pre>
 			</div>
 		);
 	}

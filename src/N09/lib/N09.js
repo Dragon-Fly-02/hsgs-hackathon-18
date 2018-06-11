@@ -11,7 +11,7 @@ var N09={
 		now=num[0];
 		for(let i=1;i<N-1;i++) {
 			oper.push(-1);
-			tmp=Math.floor(Math.random()*3);
+			tmp=Math.floor(Math.random()*4);
 			ans.push(tmp);
 			switch(tmp) {
 				case 0:
@@ -27,11 +27,11 @@ var N09={
 					now*=num[i];
 					break;
 				case 3:
-					let d;
-					for(let j=1;j<=num[i-1];j++){
-						if(num[i-1]%j==0) d.push(j);
+					let d=[];
+					for(let j=1;j<=now;j++){
+						if(now%j==0) d.push(j);
 					}
-					num.push(d[Math.round(Math.random()*d.length)]);
+					num.push(d[Math.floor(Math.random()*d.length)]);
 					now/=num[i];
 					break;
 			}
@@ -89,7 +89,7 @@ var N09={
 			now=num[0];
 			for(let i=1;i<N-1;i++) {
 				oper.push(-1);
-				tmp=Math.floor(Math.random()*3);
+				tmp=Math.floor(Math.random()*4);
 				ans.push(tmp);
 				switch(tmp) {
 					case 0:
@@ -105,11 +105,11 @@ var N09={
 						now*=num[i];
 						break;
 					case 3:	
-						let d;
-						for(let j=1;j<=num[i-1];j++){
-							if(num[i-1]%j==0) d.push(j);
+						let d=[];
+						for(let j=1;j<=now;j++){
+							if(now%j==0) d.push(j);
 						}
-						num.push(d[Math.round(Math.random()*d.length)]);
+						num.push(d[Math.floor(Math.random()*d.length)]);
 						now/=num[i];
 						break;
 				}
@@ -130,7 +130,7 @@ var N09={
 			now=num[0];
 			for(let i=1;i<N-1;i++) {
 				oper.push(-1);
-				tmp=Math.floor(Math.random()*3);
+				tmp=Math.floor(Math.random()*4);
 				ans.push(tmp);
 				switch(tmp) {
 					case 0:
@@ -146,11 +146,11 @@ var N09={
 						now*=num[i];
 						break;
 					case 3:	
-						let d;
-						for(let j=1;j<=num[i-1];j++){
-							if(num[i-1]%j==0) d.push(j);
+						let d=[];
+						for(let j=1;j<=now;j++){
+							if(now%j==0) d.push(j);
 						}
-						num.push(d[Math.round(Math.random()*d.length)]);
+						num.push(d[Math.floor(Math.random()*d.length)]);
 						now/=num[i];
 						break;
 				}

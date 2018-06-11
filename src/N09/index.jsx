@@ -17,7 +17,7 @@ class Equation extends React.Component {
 			boxes.push([<div>{'----->'+this.props.res[i]}</div>]);
 		}
 		if(this.props.res[N-1]==this.props.num[N]) {
-			boxes.push([<div>Chúc mừng, bạn đã thành công !!! 👏🏼👏🏼👏🏼</div>])
+			boxes.push([<div>Chúc mừng, bạn đã thành công !!! <img style={{width: "30px", height: "30px"}} src="https://i.imgur.com/nohyGRz.png"/><img style={{width: "30px", height: "30px"}} src="https://i.imgur.com/nohyGRz.png"/><img style={{width: "30px", height: "30px"}} src="https://i.imgur.com/nohyGRz.png"/></div>])
 			boxes.push([<audio autoPlay><source src="https://d1u5p3l4wpay3k.cloudfront.net/dota2_gamepedia/9/96/Cm_win_02.mp3"/></audio>]);
 		}
 		return <div>{boxes}</div>

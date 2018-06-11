@@ -11,9 +11,19 @@ function Square(props) {
     />
   );
 }
-let lang_vn = false;
-lang_vn = !lang_vn;
+let lang = "VN";
 class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState(function(prevState) {
+      return {isToggleOn: !prevState.isToggleOn};
+    });
+    lang = (this.state.isToggleOn ? "VN" : "EN")
+  }
   render() {
     const field = this.props.state.field;
     // console.log(field);
@@ -55,21 +65,37 @@ class Board extends React.Component {
     array.push(subarray);
 
     let error = [];
-    if (err !== null) error.push(JSON.stringify(err));
+    if (err !== null) {
+      let err_return = null;
+      switch(err) {
+        case 'tree_present' :
+          err_return = (lang === "VN" ? "Đã có cây ở ô này!" : "Tree is here!")
+          break;
+        case 'no_adj_tree' :
+          err_return = (lang === "VN" ? "Không có cây liền kề ô này!" : "No adjancent trees found!")
+          break;
+        case 'near_tent' :
+          err_return = (lang === "VN" ? "Đã có lều dựng gần đây!" : "Nearby tent found!")
+          break;
+        default : 
+          null
+      }
+      error.push(JSON.stringify(err_return));
+    }
     let space = [];
     for (let i = 5; i-- > 0; ) space.push(<br key={"br" + i} />);
     
     return (
-      <div className="s31">
+      <div className="s31"> 
       
-        <h1 style={{ float: "left" }}>{lang_vn === true ? "Trại Quân Sự Của Tướng Grad" : "General Grad's Military Camp"}</h1>;
+        <h1 style={{ float: "left" }}>{lang === "VN" ? "Trại Quân Sự Của Tướng Grad" : "General Grad's Military Camp"}</h1>
 
         <label
           style={{ float: "left", marginLeft: "10px", marginTop: "20px" }}
           className="btn"
-          //onClick={}
+          onClick={this.handleClick}
         >
-          {lang_vn === true ? "English" : "Tiếng Việt"}
+        {lang === "VN" ? "English" : "Tiếng Việt"}
         </label>
 
         <label
@@ -77,7 +103,7 @@ class Board extends React.Component {
           className="btn"
           htmlFor="modal-1"
         >
-          {lang_vn === true ? "Hướng Dẫn Chơi" : "How To Play?"}
+          {lang === "VN" ? "Hướng Dẫn Chơi" : "How To Play?"}
         </label>
 
         <label
@@ -85,7 +111,7 @@ class Board extends React.Component {
           className="btn"
           onClick={this.props.reset}
         >
-          {lang_vn === true ? "Đặt lại" : "Reset"}
+          {lang === "VN" ? "Đặt lại" : "Reset"}
         </label>
 
         <input className="modal-state" id="modal-1" type="checkbox" />
@@ -197,7 +223,7 @@ class Board extends React.Component {
         </h1>
 
         <h1 style={{ color: "green" }} className="msg">
-        {this.props.isEnding === "won" ? (lang_vn === true ? "Bạn thắng!" : "You Won!") : ""}
+        {this.props.isEnding === "won" ? (lang_vn === true ? "Bạn đã thắng!" : "You Won!") : ""}
         </h1>
 
         <footer className="footer">

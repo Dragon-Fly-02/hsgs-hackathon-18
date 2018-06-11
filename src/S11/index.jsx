@@ -125,23 +125,29 @@ class Board extends React.Component {
     const isEnded = this.props.isEnding;
     const err = this.props.error ? this.props.error.message : null;
     let status = [];
-    if (isEnded === null)
+    if (isEnded === null) {
       status.push(
         "You have used " +
           this.props.state.step +
           (this.props.step >= 2 ? " moves!" : " move!")
       );
+      status.push(
+        " Bạn đã dùng " +
+        this.props.state.step +
+        " bước."
+      )
+    }
     else if (isEnded == "won") {
       status.push(<div className="star">⋆⋆⋆</div>);
-      status.push(<div style={{ color: "green" }}>Accepted</div>);
+      status.push(<div style={{ color: "green" }}>Accepted. Bạn thắng</div>);
     } else if (isEnded == "won1") {
       status.push(<div className="star">⋆⋆</div>);
       status.push(
-        <div style={{ color: "yellowgreen" }}>You have a good solution</div>
+        <div style={{ color: "yellowgreen" }}>You have a good solution. Cách làm của bạn khá tốt</div>
       );
     } else if (isEnded == "lose") {
       status.push(<div className="star">⋆</div>);
-      status.push(<div>At least you finished the problem</div>);
+      status.push(<div>At least you finished the problem. Ít nhất bạn đã hoàn thành.</div>);
     }
     let error = [];
     if (err !== null) error.push(JSON.stringify(err));
@@ -162,7 +168,7 @@ class Board extends React.Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <label class="label">
-              First person:
+              First person (Người thứ nhất):
               <input
                 type="number"
                 value={this.state.a}
@@ -170,7 +176,7 @@ class Board extends React.Component {
               />
             </label>
             <label class="label">
-              Second person:
+              Second person (Người thứ hai):
               <input
                 type="number"
                 value={this.state.b}
@@ -178,7 +184,7 @@ class Board extends React.Component {
               />
             </label>
             <label class="label">
-              Balance:
+              Balance (Số tiền):
               <input
                 type="number"
                 Min="1"

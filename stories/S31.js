@@ -7,32 +7,32 @@ import ReactGame from "react-gameboard/lib/component";
 
 const Grad = ReactGame(Game);
 
-storiesOf("Grad (S31)", module)
+storiesOf("Grad, Again (S31)", module)
   .addDecorator(withKnobs)
-  .add("Simple Mode", () => (
+  .add("Dễ", () => (
     <Grad n={4} m={4}>
       <Board />
     </Grad>
   ))
-  .add("Normal Mode", () => (
+  .add("Thường", () => (
     <Grad n={6} m={6}>
       <Board />
     </Grad>
   ))
-  .add("Expert Mode", () => (
+  .add("Khó", () => (
     <Grad n={8} m={8}>
       <Board />
     </Grad>
   ))
-  .add("Custom Mode", () => {
+  .add("Tùy chỉnh", () => {
     const options = {
       range: true,
       step: 1,
       min: 2,
       max: 100
     };
-    const input_n = number("Row", 6, options);
-    const input_m = number("Column", 6, options);
+    const input_n = number("Số cột", 6, options);
+    const input_m = number("Số hàng", 6, options);
     const n = input_n > 1 ? input_n : 6;
     const m = input_m > 1 ? input_m : 6;
     return (

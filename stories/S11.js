@@ -10,7 +10,7 @@ const S11 = ReactGame(Game);
 
 storiesOf("S11", module)
   .addDecorator(withKnobs)
-  .add("How to play", () => {
+  .add("Hướng dẫn chơi", () => {
     return (
       <div className="divs">
         <div>
@@ -38,12 +38,12 @@ storiesOf("S11", module)
       </div>
     );
   })
-  .add("with default props", () => (
+  .add("Mức dễ", () => (
     <S11 _N={4}>
       <Board />
     </S11>
   ))
-  .add("Custom", () => {
+  .add("Tùy chọn", () => {
     const options = {
       range: true,
       step: 1,

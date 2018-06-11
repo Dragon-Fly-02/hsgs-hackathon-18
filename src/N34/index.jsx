@@ -50,7 +50,11 @@ class Board extends React.Component {
             min={1}
             max={len}
             style={{
-              color: board[i][j] > 0 ? "#FF1493" : "#000"
+              color: board[i][j] > 0 ? "#FF1493" : "#000",
+              borderLeft: i % small_len === 0 ? "solid" : "",
+              borderRight: len - i === 1 ? "solid" : "",
+              borderTop: j % small_len === 0 ? "solid" : "",
+              borderBottom: len - j === 1 ? "solid" : ""
             }}
             onChange={event =>
               this.props.Place({

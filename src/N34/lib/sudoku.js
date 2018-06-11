@@ -47,12 +47,13 @@ const Sudoku = {
       let board = state.board;
       const len = board.length;
       if (val === null) return { board };
-      if (val < 0 || val > len) throw new Error("Invalid move!");
+      if (val < 0 || val > len) throw new Error("invalid");
       board[x][y] = val;
       return { board };
     },
     async Reset(state) {
       let board = state.board;
+      if (!Number.isInteger(board[x][y])) return { board };
       if (board[x][y] > 0) board[x][y] = null;
       return { board };
     }

@@ -9,17 +9,17 @@ const Sudoku = ReactGame(Game);
 
 storiesOf("Sudoku (N34)", module)
   .addDecorator(withKnobs)
-  .add("Normal Mode", () => (
+  .add("Thường", () => (
     <Sudoku size={3} rate={2}>
       <Board />
     </Sudoku>
   ))
-  .add("Expert Mode", () => (
+  .add("Khó", () => (
     <Sudoku size={4} rate={3}>
       <Board />
     </Sudoku>
   ))
-  .add("Custom Mode", () => {
+  .add("Tùy chỉnh", () => {
     const size_options = {
       range: true,
       step: 1,
@@ -32,8 +32,8 @@ storiesOf("Sudoku (N34)", module)
       min: 2,
       max: 10
     };
-    const input_size = number("Size", 3, size_options);
-    const input_rate = number("AR (1 / AR)", 2, rate_options);
+    const input_size = number("Kích cỡ", 3, size_options);
+    const input_rate = number("Độ khó", 2, rate_options);
     const size = input_size > 1 ? input_size : 3;
     const rate = input_rate > 1 ? input_rate : 2;
     return (

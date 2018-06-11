@@ -20,12 +20,21 @@ storiesOf("Aome vô địch (S11)", module)
           cho không ai còn nợ tiền.
         </div>
         <div>
+<<<<<<< HEAD
           Việc nợ tiền của các Aome được biểu diễn như một cái bảng với ô (i, j)
           có giá trị X nghĩa là Aome i nợ Aome j X đồng.
         </div>
         <div>
           Một hành động trả nợ được biểu diễn gồm 3 giá trị (A, B, X) nghĩa là
           Aome A sẽ trả Aome B X đồng.
+=======
+          Việc nợ tiền của các A được biểu diễn như một cái bảng với ô (i, j) có
+          giá trị X nghĩa là A i nợ A j X đồng.
+        </div>
+        <div>
+          Một hành động trả nợ được biểu diễn gồm 3 giá trị (A, B, X) nghĩa là A
+          A sẽ trả A B X đồng.
+>>>>>>> upstream/master
         </div>
         <div>
           Một bước trả nợ bạn có thể điền A vào sau First person, B vào sau

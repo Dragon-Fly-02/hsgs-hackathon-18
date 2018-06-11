@@ -54,7 +54,8 @@ class Board extends React.Component {
               borderLeft: i % small_len === 0 ? "solid" : "",
               borderRight: len - i === 1 ? "solid" : "",
               borderTop: j % small_len === 0 ? "solid" : "",
-              borderBottom: len - j === 1 ? "solid" : ""
+              borderBottom: len - j === 1 ? "solid" : "",
+              borderColor: "#000"
             }}
             onChange={event =>
               this.props.Place({

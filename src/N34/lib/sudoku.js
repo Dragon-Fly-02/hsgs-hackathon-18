@@ -23,6 +23,7 @@ const Sudoku = {
     const len = Math.floor(size * size);
     let vector = Array.from(new Array(len), (val, index) => index + 1);
     vector = shuffle(vector);
+    
     let board = [];
     for (let i = 0; i < size; ++i) {
       for (let j = 0; j < size; ++j) {
@@ -60,6 +61,9 @@ const Sudoku = {
     }
   },
   isValid(state) {
+    const piles = state.board;
+    if (!(piles instanceof Array)) return false;
+    for (const pile of piles) if (!(pile instanceof Array)) return false;
     return true;
   },
   isEnding(state) {

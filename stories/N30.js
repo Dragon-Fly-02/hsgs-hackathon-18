@@ -10,9 +10,7 @@ const N30 = ReactGame(Game);
 
 storiesOf("N30", module)
   .addDecorator(withKnobs)
-  .add("Hướng dẫn", () => (
-    <Guide> </Guide>
-  ))
+  .add("Hướng dẫn", () => <Guide> </Guide>)
   .add("Dễ", () => (
     <N30 N={4}>
       <Board />

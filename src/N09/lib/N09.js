@@ -25,7 +25,7 @@ var N09={
 						i--;
 					}
 					else {
-						num.push(Math.floor(Math.random()*now));
+						num.push(Math.floor(Math.random()*(now-1)+1));
 						now-=num[i];
 					}
 					break;

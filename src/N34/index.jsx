@@ -60,11 +60,7 @@ class Board extends React.Component {
               this.props.Place({
                 x: i,
                 y: j,
-                val:
-                  parseInt(event.target.value) > len ||
-                  parseInt(event.target.value) < 1
-                    ? null
-                    : parseInt(event.target.value)
+                val: parseInt(event.target.value)
               })
             }
           />

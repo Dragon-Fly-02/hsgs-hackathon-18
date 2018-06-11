@@ -1,7 +1,7 @@
 # HSGS Hackathon 2018
 
 ## Đề bài
-// abc
+
 // Link đề bài
 
 ## Viết như nào?

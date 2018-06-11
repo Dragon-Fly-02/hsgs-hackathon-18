@@ -114,8 +114,6 @@ class Paragraph extends React.Component
 			<div className="div1">
 				  {form}
 			</div>
-			<pre>{JSON.stringify(this.props)}</pre>
-			<pre>{JSON.stringify(this.state)}</pre>
      		{res}
       		</div>
 		</div>

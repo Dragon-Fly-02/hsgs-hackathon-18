@@ -10,17 +10,17 @@ const Sudoku = ReactGame(Game);
 storiesOf("Sudoku (N34)", module)
   .addDecorator(withKnobs)
   .add("Dễ", () => (
-    <Sudoku size={3} rate={2}>
+    <Sudoku size={2} rate={2}>
       <Board />
     </Sudoku>
   ))
   .add("Thường", () => (
-    <Sudoku size={4} rate={2.5}>
+    <Sudoku size={3} rate={2.5}>
       <Board />
     </Sudoku>
   ))
   .add("Khó", () => (
-    <Sudoku size={5} rate={3}>
+    <Sudoku size={4} rate={3}>
       <Board />
     </Sudoku>
   ))

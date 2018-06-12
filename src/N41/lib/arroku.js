@@ -40,6 +40,7 @@ const Sudoku = {
       }
       vector = Shift(vector, 1);
     }
+    const board2 = board.map(v => v.slice());
     for (let i = 0; i < len; ++i) {
       for (let j = 0; j < len; ++j) {
         const print = Math.floor(Math.random() * rate);
@@ -47,17 +48,19 @@ const Sudoku = {
         if (print !== 0) board[i][j] = null;
       }
     }
+    console.table(board2);
+    console.table(board);
 
     // let side = ["U", "L", "R", "D"];
     let arrow = [...Array(len)].map(e => Array(len).fill(null));
     for (let i = 0; i < len; ++i) {
       for (let j = 0; j < len; ++j) {
         const put = Math.floor(Math.random() * arrowRate);
-        if (put !== 0) {
+        if (put !== 0 && !board[i][j]) {
           for (let k = 0; k < 4; ++k) {
             if (
               Check(i + dx[k], j + dy[k], len) &&
-              board[i + dx[k]][j + dy[k]] > board[i][j]
+              board2[i + dx[k]][j + dy[k]] > board2[i][j]
             ) {
               arrow[i][j] = k;
               break;

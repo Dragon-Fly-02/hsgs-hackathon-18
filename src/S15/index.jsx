@@ -16,7 +16,7 @@ let lang = "VN";
 class Board extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isToggleOn: false };
+    this.state = { isToggleOn: lang === "VN" ? false : true };
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
@@ -232,7 +232,7 @@ class Board extends React.Component {
 
         <h1 style={{ color: "green" }} className="msg">
           {this.props.isEnding === "won"
-            ? lang_vn === true
+            ? lang === "vn"
               ? "Bạn đã thắng!"
               : "You Won!"
             : ""}

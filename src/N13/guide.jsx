@@ -13,9 +13,9 @@ class Guide extends React.Component {
                 được đặt theo điểm mũi tên đánh dấu. Ned buộc phải đi đúng lộ trình 
                 qua các ô chứa kim cương và không được bước phạm vào ô đánh số. Tuy 
                 nhiên, con số trong ô đánh số lại biểu thị lượng ô xung quanh mà Ned 
-                buộc phải đi qua (kể cả những ô liền kề ở góc). Ngoài ra, Ned cũng không 
-                được phép di chuyển chéo và không được đi hết cả 4 ô của những vùng 
-                trống có dạng hình vuông 2x2. Nếu không cả khu mỏ sẽ bị sụp.
+                buộc phải đi qua <strong>(kể cả những ô liền kề ở góc)</strong>. Ngoài ra, Ned cũng 
+                <strong> không được phép di chuyển chéo</strong> và <strong>không được đi hết cả 4 ô của những vùng 
+                trống có dạng hình vuông 2x2</strong>. Nếu không cả khu mỏ sẽ bị sụp.
               </span>
 
               <br/>
@@ -28,7 +28,12 @@ class Guide extends React.Component {
               <br/>
               <span>
                 Các ô màu xanh nhẹ sẽ biểu thị các ô có thể đi vào. Bạn chỉ cần click chuột
-                vào vị trí muốn đến và ô đó sẽ biến thành màu hồng đậm.
+                vào vị trí muốn đến và ô đó sẽ biến thành màu cam.
+              </span>
+              <br/>
+              <span>
+                Ở một trạng thái trong game, ô chứa số sẽ hiện <strong>số ô kề nó 
+                còn lại (cả kề đỉnh và kề cạnh)</strong> mà bạn cần phải đi qua trong đường đi của mình.
               </span>
             </div>
           </div>

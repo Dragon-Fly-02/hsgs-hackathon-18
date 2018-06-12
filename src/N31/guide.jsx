@@ -11,9 +11,9 @@ class Guide extends React.Component {
                     <span>
                     Cho 1 bảng ô số NxN với N chẵn.
                     Bảng trên có định dạng khá đặc biệt.
-                    Nhưng ô tròn trắng sẽ chứa các số chẵn.
-                    Những ô tròn xám sẽ chứa các số lẻ.
-                    Mỗi hàng và mỗi cột đều chứa tất cả các số từ 0 đến N-1.
+                    <strong>Những ô tròn trắng sẽ chứa các số chẵn.</strong>
+                    <strong>Những ô tròn xám sẽ chứa các số lẻ.</strong>
+                    Mỗi hàng và mỗi cột đều chứa tất cả các số <strong>từ 0 đến N-1</strong>.
                     Nhiệm vụ của bạn là điền các số vào mỗi ô còn trống để tạo được 1 bảng thỏa mãn.
                     </span>
 

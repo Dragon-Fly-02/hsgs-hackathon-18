@@ -14,17 +14,17 @@ storiesOf("S51", module)
     <Guide> </Guide>
   ))
   .add("Dễ", () => (
-    <S51 N={4} M={4}>
+    <S51 N={3} M={4}>
       <Board />
     </S51>
   ))
   .add("Trung bình", () => (
-    <S51 N={5} M={5}>
+    <S51 N={4} M={5}>
       <Board />
     </S51>
   ))
   .add("Khó", () => (
-    <S51 N={7} M={7}>
+    <S51 N={5} M={6}>
       <Board />
     </S51>
   ))

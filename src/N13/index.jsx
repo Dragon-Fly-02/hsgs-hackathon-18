@@ -78,10 +78,10 @@ class Board extends React.Component {
     if (end.y == 0 || end.y == N - 1) {
       arrowEnd = {x: end.x + 1, y: (end.y == 0 ? 0 : (N + 1))};
     }
-    console.log(start);
-    console.log(end);
-    console.log(arrowStart);
-    console.log(arrowEnd);
+    // console.log(start);
+    // console.log(end);
+    // console.log(arrowStart);
+    // console.log(arrowEnd);
     
     // display Board with arrows
     let arrBoard = [];

@@ -56,7 +56,7 @@ const Sudoku = {
     for (let i = 0; i < len; ++i) {
       for (let j = 0; j < len; ++j) {
         const put = Math.floor(Math.random() * arrowRate);
-        if (put !== 0 && !board[i][j]) {
+        if (put === 0 && !board[i][j]) {
           for (let k = 0; k < 4; ++k) {
             if (
               Check(i + dx[k], j + dy[k], len) &&

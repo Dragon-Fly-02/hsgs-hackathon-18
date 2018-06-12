@@ -92,11 +92,29 @@ const Sudoku = {
     }
   },
   isValid(state) {
+    const piles = state.board;
+    if (!(piles instanceof Array)) return false;
+    for (const pile of piles) if (!(pile instanceof Array)) return false;
     return true;
   },
   isEnding(state) {
     let board = state.board;
     const len = board.length;
+    const dx = [0, 1, 0, -1];
+    const dy = [1, 0, -1, 0];
+
+    for (let i = 0; i < len; ++j) {
+      for (let j = 0; j < len; ++j) {
+        if (arrow[i][j]) {
+          const direct = arrow[i][j];
+          const src = board[i][j];
+          const tar = board[i + dx[direct]][j + dx[direct]];
+          if (tar === null || src === null) return null;
+          if (tar < src) return null;
+        }
+      }
+    }
+
     for (let i = 0; i < len; ++i) {
       let mark = Array(len + 1).fill(false);
       for (let j = 0; j < len; ++j) {
@@ -107,6 +125,7 @@ const Sudoku = {
       }
       for (let k = 1; k <= len; ++k) if (!mark[k]) return null;
     }
+
     for (let j = 0; j < len; ++j) {
       let mark = Array(len).fill(false);
       for (let i = 0; i < len; ++i) {
@@ -117,6 +136,7 @@ const Sudoku = {
       }
       for (let k = 1; k <= len; ++k) if (!mark[k]) return null;
     }
+
     const small_len = Math.floor(Math.sqrt(len));
     for (let i = 0; i < len; i += small_len) {
       for (let j = 0; j < len; j += small_len) {
@@ -132,6 +152,7 @@ const Sudoku = {
         for (let k = 1; k <= len; ++k) if (!mark[k]) return null;
       }
     }
+
     return "won";
   }
 };

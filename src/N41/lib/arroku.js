@@ -23,8 +23,8 @@ function Check(x, y, n) {
 
 const Sudoku = {
   default(props = { size: 3, rate: 2, arrowRate: 2 }) {
-    const dx = [0, 1, 0, -1];
-    const dy = [1, 0, -1, 0];
+    const dy = [0, 1, 0, -1];
+    const dx = [1, 0, -1, 0];
     const size = props.size;
     const rate = props.rate;
     const arrowRate = props.arrowRate;
@@ -98,15 +98,16 @@ const Sudoku = {
     return true;
   },
   isEnding(state) {
-    let board = state.board;
+    const board = state.board;
+    const arrow = state.arrow;
     const len = board.length;
-    const dx = [0, 1, 0, -1];
-    const dy = [1, 0, -1, 0];
+    const dy = [0, 1, 0, -1];
+    const dx = [1, 0, -1, 0];
 
-    for (let i = 0; i < len; ++j) {
+    for (let i = 0; i < len; ++i) {
       for (let j = 0; j < len; ++j) {
         if (arrow[i][j]) {
-          const direct = arrow[i][j];
+          const direct = arrow[i][j] - 1;
           const src = board[i][j];
           const tar = board[i + dx[direct]][j + dx[direct]];
           if (tar === null || src === null) return null;

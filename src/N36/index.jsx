@@ -44,17 +44,17 @@ class Paragraph extends React.Component
 		form.push(
 		<form onSubmit={this.handleSubmit}>
 		<br></br>
-  	    <input type="text" value={this.state.value[1]} onChange={this.handleChange} className = "form1" placeholder="Tổng lượng khách du lịch"/>
+  	    <input type="text" value={this.state.value[1]} name = {1} onChange={this.handleChange} className = "form1" placeholder="Tổng lượng khách du lịch"/>
 		<br></br>
-		<input type="text" value={this.state.value[2]} onChange={this.handleChange} className = "form1" placeholder="Số nâng cấp - Polish Tour"/>
+		<input type="text" value={this.state.value[2]} name = {2} onChange={this.handleChange} className = "form1" placeholder="Số nâng cấp - Polish Tour"/>
 		<br></br>
-		<input type="text" value={this.state.value[3]} onChange={this.handleChange} className = "form1" placeholder="Số nâng cấp - London"/>
+		<input type="text" value={this.state.value[3]} name = {3} onChange={this.handleChange} className = "form1" placeholder="Số nâng cấp - London"/>
 		<br></br>
-		<input type="text" value={this.state.value[4]} onChange={this.handleChange} className = "form1" placeholder="Số nâng cấp - Alison"/>
+		<input type="text" value={this.state.value[4]} name = {4} onChange={this.handleChange} className = "form1" placeholder="Số nâng cấp - Alison"/>
 		<br></br>
-		<input type="text" value={this.state.value[5]} onChange={this.handleChange} className = "form1" placeholder="Số nâng cấp - Italians"/>
+		<input type="text" value={this.state.value[5]} name = {5} onChange={this.handleChange} className = "form1" placeholder="Số nâng cấp - Italians"/>
 		<br></br>
-		<input type="text" value={this.state.value[6]} onChange={this.handleChange} className = "form1" placeholder="Tổng tiền Ed nhận"/>
+		<input type="text" value={this.state.value[6]} name = {6} onChange={this.handleChange} className = "form1" placeholder="Tổng tiền Ed nhận"/>
 		
 		<br></br>
 		

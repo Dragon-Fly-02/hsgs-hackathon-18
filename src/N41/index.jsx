@@ -52,11 +52,12 @@ class Board extends React.Component {
             max={len}
             style={{
               color: board[i][j] > 0 ? "#FF1493" : "#000",
-              borderLeft: i % small_len === 0 ? "solid" : "",
-              borderRight: len - i === 1 ? "solid" : "",
-              borderTop: j % small_len === 0 ? "solid" : "",
-              borderBottom: len - j === 1 ? "solid" : "",
-              borderColor: "#000"
+              borderLeft: "#000 solid " + (i === 0 ? "4px" : "1px"),
+              borderRight:
+                "#000 solid " + ((i + 1) % small_len === 0 ? "4px" : "1px"),
+              borderTop: "#000 solid " + (j === 0 ? "4px" : "1px"),
+              borderBottom:
+                "#000 solid " + ((j + 1) % small_len === 0 ? "4px" : "1px")
             }}
             onChange={event =>
               this.props.Place({

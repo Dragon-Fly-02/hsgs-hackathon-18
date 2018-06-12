@@ -67,11 +67,11 @@ class Board extends React.Component {
     }
 
     if (this.props.isEnding == "won" && err == null) {
-      log.push(<span className="verdict">{"Giỏi! Bạn xứng đáng là Học sinh Giỏi!"}</span>)
+      log.push(<span className="verdict">{"Tốt lắm! Bạn xứng đáng là Học sinh Giỏi!"}</span>)
     }
 
     if (this.props.isEnding == "lose" && err == null) {
-      log.push(<span className="verdict">{"Tiếc quá! Thua rồi!"}</span>)
+      log.push(<span className="verdict">{"Tiếc quá! Không còn nước đi nữa rồi!"}</span>)
     }
     
     let result = [];
@@ -101,7 +101,7 @@ class Board extends React.Component {
             onClick={e => this.handleUndo()}
             disabled={startGame}
           >
-            Undo
+            Quay lại
           </button>
         </span>
         <span className="log">
@@ -110,7 +110,7 @@ class Board extends React.Component {
             onClick={() => this.props.restart()}
             disabled={startGame}
           >
-            Restart
+            Bắt đầu lại
           </button>
         </span>
         <br/><br/>

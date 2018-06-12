@@ -86,7 +86,7 @@ class Board extends React.Component {
   else
   div_return="";
   return(
-    <div>
+    <div className="s17-team1">
       <h1><button key="vi" onClick={this.changelangen}>English</button><button onClick={this.changelangvi}>Tiếng Việt </button></h1>
       <h1><button key="help" onClick={this.show}>{this.state.lang==="Eng"?"show help":"hướng dẫn"}</button></h1>
       <button key="reset" onClick={this.props.reset} style={{color:"red"}}> Reset </button>

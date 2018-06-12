@@ -9,22 +9,22 @@ const N04 = ReactGame(Game); // const N04
 
 storiesOf("N04", module)
   .addDecorator(withKnobs)
-  .add("Easy", () => (
+  .add("Dễ", () => (
     <N04 Stepn = {1000} Stepx = {50} Stepy = {50} Stepz = {50}>
       <Paragraph />
     </N04>
   ))
-  .add("Normal", () => (
+  .add("Trung bình", () => (
     <N04 Stepn = {500} Stepx = {20} Stepy = {20} Stepz = {20}>
       <Paragraph />
     </N04>
   ))
-  .add("Hard", () => (
+  .add("Khó", () => (
     <N04 Stepn = {200} Stepx = {10} Stepy = {10} Stepz = {10}>
       <Paragraph />
     </N04>
   ))
-  .add("Impossible", () => (
+  .add("Siêu khó", () => (
     <N04 Stepn = {10} Stepx = {5} Stepy = {5} Stepz = {5}>
       <Paragraph />
     </N04>
@@ -34,7 +34,7 @@ storiesOf("N04", module)
       <Paragraph />
     </N04>
   ))
-  .add("Custom", () => {
+  .add("Tùy chọn", () => {
     const options = {
       range: true,
       step: 100,

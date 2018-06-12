@@ -30,9 +30,17 @@ class Paragraph extends React.Component {
   }
 
   render() {
+    let err;
+    if (this.props.isEnding !== null) {
+      err = "Đúng rồi, Chúc mừng bạn!!!";
+    } else err = "Sai rồi!!! Hãy nhập kết quả chính xác.";
+    let res = [];
+    if (this.props.isEnding === null)
+      res.push(<div className="Wrong">{err}</div>);
+    else res.push(<div className="True">{err}</div>);
     let form = [];
     form.push(
-      <form onSubmit={this.handleSubmit}>
+      <form className="form-style-9" onSubmit={this.handleSubmit}>
         <label> Số học sinh làm bánh: </label>
         <br />
         <input
@@ -52,16 +60,12 @@ class Paragraph extends React.Component {
         />
         <br />
         <input type="submit" value="Submit" className="submit1" />
+        <div>
+          {res}
+        </div>
       </form>
     );
-    let err;
-    if (this.props.isEnding !== null) {
-      err = "Congratulations!";
-    } else err = "Guess the right number!";
-    let res = [];
-    if (this.props.isEnding === null)
-      res.push(<div className="Wrong">{err}</div>);
-    else res.push(<div className="True">{err}</div>);
+
     return (
       <div className="n04">
         <div className="p1">
@@ -70,7 +74,7 @@ class Paragraph extends React.Component {
           khóa thành con số thực tế để đưa vào trang thông tin. Bạn hãy giúp cô
           Darja tính ra số học sinh sẽ tham dự.
           <br />
-          Không được dùng máy tính hãy giấy viết, hãy tính nhẩm trong xem có bao
+          Không được dùng máy tính hãy giấy viết, Hãy tính nhẩm trong xem có bao
           nhiêu học sinh chọn hoạt động làm bánh và bao nhiêu học sinh tham gia
           điệu nhảy đường phố.
           <br />
@@ -84,9 +88,10 @@ class Paragraph extends React.Component {
           }{" "}
           số học sinh đăng ký nhảy vũ điệu đường phố.
         </div>
-
+        <div>
         {form}
-        {res}
+
+        </div>
       </div>
     );
   }

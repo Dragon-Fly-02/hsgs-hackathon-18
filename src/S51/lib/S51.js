@@ -118,7 +118,7 @@ const S51 = {
         }
         // reset glow[][]
         for (let i = 0; i < N; ++i) {
-          for (let j = 0; j < N; ++j) {
+          for (let j = 0; j < M; ++j) {
             glow[i][j] = 0;
           }
         }

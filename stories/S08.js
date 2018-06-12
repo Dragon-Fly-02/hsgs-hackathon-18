@@ -9,21 +9,25 @@ const TOH = ReactGame(Game);
 
 storiesOf("S08", module)
 .addDecorator(withKnobs)
+  //Số bóng bằng 4
   .add("Easy", () => (
     <TOH height={4}>
       <Board />
     </TOH>
   ))
+  //Số bóng bằng 9
   .add("Normal", () => (
     <TOH height={9}>
       <Board />
     </TOH>
   ))
+  //Số bóng bằng 14
   .add("Hard", () => (
     <TOH height={14}>
       <Board />
     </TOH>
   ))
+  //Số bóng tùy chỉnh
   .add("Custom", () => {
     const options = {
       range: true,

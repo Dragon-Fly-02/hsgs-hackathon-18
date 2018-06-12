@@ -5,6 +5,7 @@ const S08 = {
   default(props = { height }) {
     let h=props.height;
     let piles = [], res = [];
+    //Sinh đề bài random
     while(1){
       let temp=Math.floor(Math.random()*(h-1))+1;
       if(2*temp<=h) {
@@ -55,8 +56,7 @@ const S08 = {
     async move(state, { x }) {
       let used = state.used , col=state.col;
       let res = state.res , h=state.h;
-      if(used[x])
-        throw new Error("Invalid move");
+      //Di chuyển
       res.push(x);
       used[x] = 1;
       return { used, col, res, h};
@@ -66,6 +66,7 @@ const S08 = {
       let res = state.res , h=state.h;
       used=[]; col=[]; res=[];
       let piles=[];
+      //Reset lại game
       while(1){
         let temp=Math.floor(Math.random()*(h-1))+1;
         if(2*temp<=h) {
@@ -108,11 +109,22 @@ const S08 = {
       for( let i = 0; i <= h; ++ i )
         used.push(0);
       return { used, col, res, h};
+    },
+    async Undo(state){
+      let used = state.used , col=state.col;
+      let res = state.res , h=state.h;
+      //Lùi lại bước trước
+      if(res.length>0){
+        used[res[res.length-1]]=0;
+        res.pop();
+      }
+      return { used, col, res, h};
     }
   },
   isEnding(state) {
     let res=state.res;
     let col=state.col , h=state.h;
+    //Kiểm tra xem hết game chưa
     let ok = 1;
     if(res.length===h) {
       for( let i = 0; i < h; i++ ){

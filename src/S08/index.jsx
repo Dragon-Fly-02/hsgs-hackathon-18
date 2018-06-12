@@ -3,61 +3,70 @@ import S08 from "./lib/S08.js";
 
 import "./index.less";
 
-
-class Entity extends React.Component{
-  render(){
-      let array = [];
-      for(let i = 0 ; i < this.props._pile.length ; ++ i)
-        array.push(<td key={i}>{this.props._pile[i]}</td>);
-      for(let i = this.props._pile.length; i < this.props._h; ++ i ) {
-        array.push(<td key={i}>0</td>);
-      }
-      console.log(array);
-      return <tr> { array } </tr>;
-    }
-}
 class Board extends React.Component {
   render() {
     let res=this.props.state.res;
     let col=this.props.state.col;
+    let used=this.props.state.used;
     let h=this.props.state.h;
     let moves = [];
-    for( let i=1; i<=h; i++ )
+    //Cho các bóng chưa dùng vào mảng moves
+    for( let i=1; i<=h; i++ ){
+      if(used[i]) continue;
       if(col[i]==='white')
       moves.push(
-        <div>
-          <button className="buttoncircle1" onClick={() => this.props.move({ x: i})}>
-            {i}
-          </button>
-        </div>
+        <button className="buttoncircle1" onClick={() => this.props.move({ x: i})}>
+          {i}
+        </button>
       );
       else
       moves.push(
-        <div>
-          <button className="buttoncircle2" onClick={() => this.props.move({ x: i})}>
-            {i}
-          </button>
-        </div>
+        <button className="buttoncircle2" onClick={() => this.props.move({ x: i})}>
+          {i}
+        </button>
       );
+    }
+    //Cho các bóng đã dùng vào mảng array
+    let array = [];
+      for(let i = 0 ; i < res.length ; ++ i){
+        if(col[res[i]]==='white')
+        array.push(
+          <button className="buttoncircle1">
+            {res[i]}
+          </button>
+        );
+        else
+        array.push(
+          <button className="buttoncircle2">
+            {res[i]}
+          </button>
+        );
+      }
+    let pl;
+    if(!res.length) pl=<h1></h1>;
+    //Lấy error
     let err = this.props.error ? this.props.error.message : undefined;
+    if(res.length===h) err="Game over";
+    //In ra đề bài, có một phần bonus thêm cho vui, các mảng
     return (
-      <div className="example">
-        <p>Có {h} quả bóng, {(h-h%2)/2} trắng, còn lại đen. Hãy xếp chúng vào cột sao cho:<br/>
+      <div className="tourist">
+        <p>Có {h} quả bóng, {(h-h%2)/2} trắng, còn lại đen. Hãy xếp chúng vào giữa 2 thanh đỏ sao cho:<br/>
           +Các bóng lẻ kề nhau.<br/>
           +Các bóng trắng kề nhau.<br/>
           +Số trái cùng gấp đôi số gần trái cùng.<br/>
         </p>
+        <h1 className="chu">If you want to become tourist, let's play this game</h1>
         <button className="khung" onClick={this.props.StartNewGame}> Start a new game (bắt đầu lại) </button>
-        <table style={{ border: "2px solid green" }}>
-          <tbody>
-              <Entity _h={h} _pile={res} />
-          </tbody>
-        </table>
-        <hr />
-        <p>Ấn vào các quả bóng ở bên dưới để xếp vào cột</p>
+        <button className="khung" onClick={this.props.Undo}>Undo</button>
+        <br/>
+        <hr color="red"/>
+        {pl}
+        {array}
+        <hr color="red"/>
+        <p>Ấn vào các quả bóng ở bên dưới để xếp vào giữa 2 thanh đỏ:</p>
         {moves}
-        <pre>{JSON.stringify(this.props.isEnding)}</pre>
-        <pre>{JSON.stringify(err)}</pre>
+        <pre><h1>{JSON.stringify(this.props.isEnding)}</h1></pre>
+        <pre><h1>{JSON.stringify(err)}</h1></pre>
       </div>
     );
   }

@@ -47,13 +47,14 @@ class Board extends React.Component {
             }
             key={"item" + i + j}
             className={
-              "square" + (arrow[i][j] ? (" square-arrow" + arrow[i][j]) : "")
+              "square" + (arrow[i][j] ? " square-arrow" + arrow[i][j] : "")
             }
             disabled={this.props.isEnding === "won" ? true : board[i][j] < 0}
             min={1}
             max={len}
             style={{
-              color: board[i][j] > 0 ? "#FF1493" : "#000",
+              fontSize: "16px",
+              color: board[i][j] > 0 ? "#ff1493" : "#000",
               borderLeft: "#000 solid " + (i === 0 ? "4px" : "1px"),
               borderRight:
                 "#000 solid " + ((i + 1) % small_len === 0 ? "4px" : "1px"),

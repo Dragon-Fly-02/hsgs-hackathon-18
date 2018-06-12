@@ -7,7 +7,7 @@ import ReactGame from "react-gameboard/lib/component";
 
 const Arroku = ReactGame(Game);
 
-storiesOf("Arroku (N41)", module)
+storiesOf("Arrowku (N41)", module)
   .addDecorator(withKnobs)
   .add("Dễ", () => (
     <Arroku size={3} rate={2} arrowRate={2}>

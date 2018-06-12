@@ -1,14 +1,14 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import Board from "../example/index.jsx";
-import Game from "../example/lib/S08.js";
+import Board from "../src/S08/index.jsx";
+import Game from "../src/S08/lib/S08.js";
 import ReactGame from "react-gameboard/lib/component";
 import { number, withKnobs } from "@storybook/addon-knobs";
 
 const TOH = ReactGame(Game);
 
 storiesOf("S08", module)
-.addDecorator(withKnobs)
+  .addDecorator(withKnobs)
   .add("Easy", () => (
     <TOH height={4}>
       <Board />

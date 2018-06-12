@@ -1,26 +1,32 @@
 import React from "react";
+import "./guide.less"
 
 class Guide extends React.Component {
     render() {
         return(
-            <body>
-                <h1> Hướng dẫn sử dụng game S01. </h1>
+            <div className="s51">
+                <div className="guide">
+                    <h1> Hướng dẫn chơi </h1>
 
-                <p>
-                    Nhà lập trình game 0404 vừa sáng tạo ra trò chơi cùng các biến số. <br/>
-                    Hiện thì trên màn hình trò chơi là một bảng gồm các biến số với tổng giá trị trên một hàng và một cột cho trước. <br/>
-                    Mỗi biến số có dạng một chữ cái latin tiếng anh, mỗi biến số sẽ dại diện cho một con số nào đó. <br/>
-                    Nhiệm vụ của bạn là phải xác định giá trị các biến số để tổng giá trị các biến số thỏa mãn tổng cho trước. 
-                </p>
+                    <span>
+                        Tomo và 0404 là 2 người bạn thân, một hôm Tomo rủ 0404 chơi cờ.
+                        Bàn cờ có dạng bảng hình chữ nhật NxM, các quân cờ nằm ở một số ô trên bảng.
+                        Ở mỗi lượt đi 0404 có thể chọn một quân cờ bất kì và di chuyển nó.
+                        Quân cờ có thể di chuyển theo hướng lên, xuống, trái, phải 2 bước.
+                        Tuy nhiên để di chuyển ô kề cạnh theo hướng nó di chuyển phải có quân cờ và ô nó di chuyển tới không có quân cờ.
+                        Sau khi quân cờ di chuyển, Tomo sẽ mang quân cờ ở ô kề cạnh theo hướng quân cờ di chuyển ra khỏi bảng.
+                        Trò chơi kết thúc khi chỉ còn 1 quân cờ trên bảng, hãy giúp 0404.
+                    </span>
 
-                <p>
-                    Bên cạnh bảng là các ô trống để điền các biến số. <br/>
-                    Để điền giá trị ta nhấp chuột vào ô chứa biến số cần điền rồi gõ giá trị cần điền. <br/>
-                    Biết rằng giá trị biến số là số tự nhiên trong khoảng từ 0 đến 9 và bảng được cho luôn tồn tại kết quả. <br/>
-                    Khi ta thay đổi giá trị của một biến số, các ô trên bảng chứa biến số, tổng hàng và tổng cột sẽ được thay đổi theo. <br/>
-                    Để nhận biết các ô chứa một biến số nào đó trên bảng ta chỉ cần nhấp chuột vào ô điền giá trị biến số đó. <br/>
-                </p>
-            </body>
+                    <span>
+                        Để chọn quân cờ cần di chuyển, ta nhấp chuột vào ô chứa quân cờ, ô được nhấp sẽ được tô màu đỏ.
+                        Khi đó các ô tiếp theo ta có thể di chuyển sẽ được tô màu xanh.
+                        Để di chuyển đến một ô xanh nào đó, ta nhấp chuột vào ô đó.
+                        Nếu bạn không muốn sử dụng quân cờ trên đề di chuyển, nhấp chuột lần nữa vào ô chứa quân cờ đó.
+                        (Chú ý bạn không thể chọn 2 quân cờ để di chuyển cùng một lúc)
+                    </span>
+                </div>
+            </div>
         );
     }
 }

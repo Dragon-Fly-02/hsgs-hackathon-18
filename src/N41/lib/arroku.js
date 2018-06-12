@@ -107,9 +107,9 @@ const Sudoku = {
         if (arrow[i][j]) {
           const direct = arrow[i][j] - 1;
           const src = board[i][j];
-          const tar = board[i + dx[direct]][j + dx[direct]];
+          const tar = board[i + dx[direct]][j + dy[direct]];
           if (tar === null || src === null) return null;
-          if (tar < src) return null;
+          if (Math.abs(tar) < Math.abs(src)) return null;
         }
       }
     }

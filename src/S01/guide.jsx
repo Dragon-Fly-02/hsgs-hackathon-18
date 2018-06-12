@@ -19,8 +19,8 @@ class Guide extends React.Component {
                         Bên cạnh bảng là các ô trống để điền các biến số.
                         Để điền giá trị ta nhấp chuột vào ô chứa biến số cần điền rồi gõ giá trị cần điền.
                         Biết rằng <strong>giá trị biến số là số tự nhiên trong khoảng từ 0 đến 9</strong> và bảng được cho luôn tồn tại kết quả.
-                        <strong>Khi ta thay đổi giá trị của một biến số, các ô trên bảng chứa biến số, tổng hàng và tổng cột sẽ được thay đổi theo.</strong>
-                        <strong>Để nhận biết các ô chứa một biến số nào đó trên bảng ta chỉ cần nhấp chuột vào ô điền giá trị biến số đó.</strong>
+                        <br/><strong> Khi ta thay đổi giá trị của một biến số, các ô trên bảng chứa biến số, tổng hàng và tổng cột sẽ được thay đổi theo.</strong>
+                        <br/><strong> Để nhận biết các ô chứa một biến số nào đó trên bảng ta chỉ cần nhấp chuột vào ô điền giá trị biến số đó.</strong>
                     </span>
                 </div>
             </div>

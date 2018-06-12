@@ -26,13 +26,10 @@ const S51 = {
       board.push(Array(M).fill(0));
       glow.push(Array(M).fill(0));
     }
-
-    let lim = 2 + random(N * M - 2);
-
     let arr = [];
     arr.push([random(N), random(M)]); 
     board[arr[0][0]][arr[0][1]] = 1;
-
+    let lim = 2 + random(N * M - 2);
     while(arr.length <= lim) {
       random_shuffle(arr);
       let found = false;
@@ -112,17 +109,10 @@ const S51 = {
       let N = board.length;
       let M = board[0].length;
       let _done = 0;
-      if(type[0] == -1 || (glow[row][col] == 0)) {
+      if(type[0] == -1) {
         if(board[row][col] == 0) {
           throw new Error("Nước đi không hợp lệ");
         }
-        // reset glow[][]
-        for (let i = 0; i < N; ++i) {
-          for (let j = 0; j < M; ++j) {
-            glow[i][j] = 0;
-          }
-        }
-        // set
         type = [row, col];
         glow[row][col] = 1;
         for(let i = 0; i < 4; ++i) {
@@ -154,6 +144,23 @@ const S51 = {
             for(let j = 0; j < M; ++j)
               glow[i][j] = 0;
       }
+      else if(board[row][col] == 1) {
+        for(let i = 0; i < N; ++i)
+          for(let j = 0; j < M; ++j)
+            glow[i][j] = 0;
+        type = [row, col];
+        glow[row][col] = 1;
+        for(let i = 0; i < 4; ++i) {
+          let x1 = row + dir[i][0];
+          let y1 = col + dir[i][1];
+          if(x1 >= N || y1 >= M || x1 < 0 || y1 < 0) continue;
+          let x2 = row + dir[i][0] / 2;
+          let y2 = col + dir[i][1] / 2;
+          if(board[x1][y1] == 1) continue;
+          if(board[x2][y2] == 0) continue;
+          glow[x1][y1] = 2;
+        }
+      }
       else {
         throw new Error("Nước đi không hợp lệ");
       }
@@ -167,7 +174,7 @@ const S51 = {
         type: type,
         _done: _done
       };
-    },
+    }
   },
 
   isValid(state) {

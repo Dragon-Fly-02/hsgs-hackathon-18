@@ -22,14 +22,23 @@ class Square extends React.Component {
 
 class Board extends React.Component {
   
-  handleClick(event, row, col) {
+  async handleClick(event, row, col) {
+    if(this.props.state.type[0] != -1 && this.props.state.glow[row][col] == 0 && this.props.state.board[row][col] == 1) {
+      this.props.undo();
+    }
     this.props.move({row: row, col: col});
   }
 
-  handleUndo() {
-    if(this.props.state.type[0] != -1) this.props.undo();
-    this.props.undo();
-    this.props.undo();
+  async handleUndo() {
+    if(this.props.state.type[0] != -1) {
+      await this.props.undo();
+    }
+    if(this.props.state.board != this.props.state.Oboard) {
+      await this.props.undo();
+    }
+    if(this.props.state.board != this.props.state.Oboard) {
+      await this.props.undo();
+    }
   }
 
   render() {
@@ -62,17 +71,16 @@ class Board extends React.Component {
     if (err !== null) error.push(JSON.stringify(err));
 
     let log = [];
-    if (error.length != 0) {
-      log.push(<span className="verdict">{error}</span>)
-    }
-
-    if (this.props.isEnding == "won" && err == null) {
+    if (this.props.isEnding == "won") {
       log.push(<span className="verdict">{"Tốt lắm! Bạn xứng đáng là Học sinh Giỏi!"}</span>)
     }
-
-    if (this.props.isEnding == "lose" && err == null) {
+    else if (this.props.isEnding == "lose") {
       log.push(<span className="verdict">{"Tiếc quá! Không còn nước đi nữa rồi!"}</span>)
     }
+    else if (error.length != 0) {
+      log.push(<span className="verdict">{error}</span>)
+    }
+    
     
     let result = [];
     result.push(<span></span>);
@@ -80,14 +88,6 @@ class Board extends React.Component {
       result.push(<div className="log">{log}</div>)
     }
 
-    let startGame = true;
-    for (let i = 0; i < N; ++i) {
-      for (let j = 0; j < N; ++j) {
-        if (this.props.state.board[i][j] != this.props.state.Oboard[i][j]) {
-          startGame = false;
-        }
-      }
-    }
 
     return (
       <div className="s51">
@@ -99,7 +99,6 @@ class Board extends React.Component {
           <button
             className="undo"
             onClick={e => this.handleUndo()}
-            disabled={startGame}
           >
             Quay lại
           </button>
@@ -108,7 +107,6 @@ class Board extends React.Component {
           <button
             className="restart"
             onClick={() => this.props.restart()}
-            disabled={startGame}
           >
             Bắt đầu lại
           </button>
@@ -121,3 +119,4 @@ class Board extends React.Component {
 }
 
 export default Board;
+

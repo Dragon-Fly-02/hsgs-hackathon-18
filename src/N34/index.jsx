@@ -6,7 +6,7 @@ let lang = "VN";
 class Board extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isToggleOn: false };
+    this.state = { isToggleOn: lang === "VN" ? false : true };
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
@@ -52,9 +52,11 @@ class Board extends React.Component {
             style={{
               color: board[i][j] > 0 ? "#FF1493" : "#000",
               borderLeft: "#000 solid " + (i === 0 ? "4px" : "1px"),
-              borderRight: "#000 solid " + ((i + 1) % small_len === 0 ? "4px" : "1px"),
+              borderRight:
+                "#000 solid " + ((i + 1) % small_len === 0 ? "4px" : "1px"),
               borderTop: "#000 solid " + (j === 0 ? "4px" : "1px"),
-              borderBottom: "#000 solid " + ((j + 1) % small_len === 0 ? "4px" : "1px"),
+              borderBottom:
+                "#000 solid " + ((j + 1) % small_len === 0 ? "4px" : "1px")
             }}
             onChange={event =>
               this.props.Place({

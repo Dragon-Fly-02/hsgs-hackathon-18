@@ -22,14 +22,23 @@ class Square extends React.Component {
 
 class Board extends React.Component {
   
-  handleClick(event, row, col) {
+  async handleClick(event, row, col) {
+    if(this.props.state.type[0] != -1 && this.props.state.glow[row][col] == 0 && this.props.state.board[row][col] == 1) {
+      this.props.undo();
+    }
     this.props.move({row: row, col: col});
   }
 
-  handleUndo() {
-    if(this.props.state.type[0] != -1) this.props.undo();
-    this.props.undo();
-    this.props.undo();
+  async handleUndo() {
+    if(this.props.state.type[0] != -1) {
+      await this.props.undo();
+    }
+    if(this.props.state.board != this.props.state.Oboard) {
+      await this.props.undo();
+    }
+    if(this.props.state.board != this.props.state.Oboard) {
+      await this.props.undo();
+    }
   }
 
   render() {
@@ -62,35 +71,47 @@ class Board extends React.Component {
     if (err !== null) error.push(JSON.stringify(err));
 
     let log = [];
-    if (error.length != 0) {
-      log.push(<span>{error}</span>)
+    if (this.props.isEnding == "won") {
+      log.push(<span className="verdict">{"Tốt lắm! Bạn xứng đáng là Học sinh Giỏi!"}</span>)
     }
-
-    if (this.props.isEnding == "won" && err == null) {
-      log.push(<span>{"Giỏi!"}</span>)
+    else if (this.props.isEnding == "lose") {
+      log.push(<span className="verdict">{"Tiếc quá! Không còn nước đi nữa rồi!"}</span>)
     }
-
-    if (this.props.isEnding == "lose" && err == null) {
-      log.push(<span>{"Gà!"}</span>)
+    else if (error.length != 0) {
+      log.push(<span className="verdict">{error}</span>)
     }
+    
     
     let result = [];
     result.push(<span></span>);
     if (log.length != 0) {
-      result.push(<div>{log}</div>)
+      result.push(<div className="log">{log}</div>)
     }
+
 
     return (
       <div className="s51">
-        <h1> S51 </h1>
+        <br/><br/>
         {arrBoard}
         <br/>
+
+        <span className="log">
           <button
+            className="undo"
             onClick={e => this.handleUndo()}
           >
-            Undo
+            Quay lại
           </button>
-        <br/>
+        </span>
+        <span className="log">
+          <button
+            className="restart"
+            onClick={() => this.props.restart()}
+          >
+            Bắt đầu lại
+          </button>
+        </span>
+        <br/><br/>
         {result}
       </div>
     );
@@ -98,3 +119,4 @@ class Board extends React.Component {
 }
 
 export default Board;
+

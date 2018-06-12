@@ -28,7 +28,7 @@ storiesOf("Sudoku (N34)", module)
     const size_options = {
       range: true,
       step: 1,
-      min: 3,
+      min: 2,
       max: 7
     };
     const rate_options = {

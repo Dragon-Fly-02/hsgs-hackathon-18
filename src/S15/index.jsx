@@ -16,7 +16,7 @@ let lang = "VN";
 class Board extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isToggleOn: false };
+    this.state = { isToggleOn: lang === "VN" ? false : true };
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {

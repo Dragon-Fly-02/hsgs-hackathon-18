@@ -28,7 +28,7 @@ class Guide extends React.Component {
               <br/>
               <span>
                 Các ô màu xanh nhẹ sẽ biểu thị các ô có thể đi vào. Bạn chỉ cần click chuột
-                vào vị trí muốn đến và ô đó sẽ biến thành màu hồng đậm.
+                vào vị trí muốn đến và ô đó sẽ biến thành màu cam.
               </span>
               <br/>
               <span>

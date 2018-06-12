@@ -10,17 +10,17 @@ const Arroku = ReactGame(Game);
 storiesOf("Arroku (N41)", module)
   .addDecorator(withKnobs)
   .add("Dễ", () => (
-    <Arroku size={3} rate={2}>
+    <Arroku size={3} rate={2} arrowRate={2}>
       <Board />
     </Arroku>
   ))
   .add("Thường", () => (
-    <Arroku size={3} rate={2.5}>
+    <Arroku size={3} rate={2.5} arrowRate={3}>
       <Board />
     </Arroku>
   ))
   .add("Khó", () => (
-    <Arroku size={4} rate={3}>
+    <Arroku size={4} rate={3} arrowRate={3}>
       <Board />
     </Arroku>
   ))
@@ -39,10 +39,12 @@ storiesOf("Arroku (N41)", module)
     };
     const input_size = number("Kích cỡ", 3, size_options);
     const input_rate = number("Độ thưa", 2, rate_options);
+    const input_arrow_rate = number("Độ thưa của mũi tên", 2, rate_options);
     const size = input_size > 1 ? input_size : 3;
     const rate = input_rate > 1 ? input_rate : 2;
+    const arrow_rate = input_arrow_rate > 1 ? input_arrow_rate : 2;
     return (
-      <Arroku size={size} rate={rate}>
+      <Arroku size={size} rate={rate} arrowRate={arrow_rate}>
         <Board />
       </Arroku>
     );

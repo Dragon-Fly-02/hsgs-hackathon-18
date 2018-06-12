@@ -48,8 +48,6 @@ const Sudoku = {
         if (print !== 0) board[i][j] = null;
       }
     }
-    console.table(board2);
-    console.table(board);
 
     // let side = ["U", "L", "R", "D"];
     let arrow = [...Array(len)].map(e => Array(len).fill(null));

@@ -23,8 +23,8 @@ function Check(x, y, n) {
 
 const Sudoku = {
   default(props = { size: 3, rate: 2, arrowRate: 2 }) {
-    const dx = [-1, 0, 0, 1];
-    const dy = [0, -1, 1, 0];
+    const dx = [0, 1, 0, -1];
+    const dy = [1, 0, -1, 0];
     const size = props.size;
     const rate = props.rate;
     const arrowRate = props.arrowRate;
@@ -62,7 +62,7 @@ const Sudoku = {
               Check(i + dx[k], j + dy[k], len) &&
               board2[i + dx[k]][j + dy[k]] > board2[i][j]
             ) {
-              arrow[i][j] = k;
+              arrow[i][j] = k + 1;
               break;
             }
           }

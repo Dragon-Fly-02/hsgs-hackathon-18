@@ -10,17 +10,17 @@ const Grad = ReactGame(Game);
 storiesOf("Grad, Again (S31)", module)
   .addDecorator(withKnobs)
   .add("Dễ", () => (
-    <Grad n={4} m={4}>
+    <Grad n={6} m={4}>
       <Board />
     </Grad>
   ))
   .add("Thường", () => (
-    <Grad n={6} m={6}>
+    <Grad n={8} m={6}>
       <Board />
     </Grad>
   ))
   .add("Khó", () => (
-    <Grad n={8} m={8}>
+    <Grad n={12} m={8}>
       <Board />
     </Grad>
   ))
